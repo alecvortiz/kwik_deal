@@ -1,0 +1,23 @@
+<div class="container">
+    <h1>View Deal | <%= link_to 'Add Product', new_deal_product_path(@deal)%></h1> 
+    
+    <p>Name: <%= @deal.name %></p>
+    <p>City Planner: <%= @deal.city_planner %></p>
+    <p>Account Name: <%= @deal.account_name %></p>
+    <p>Close Date: <%= @deal.close_date %></p>
+    <p>Email Link To: <%= @deal.email_to %></p>
+    <p>Payment Terms: <%= @deal.payment_terms %></p>
+    <p>Months to Expiration: <%= @deal.months_to_expiration %></p>
+    <p>Capacity Information: <%= @deal.capacity_info %></p>
+    <p>Fine Print: <%= @deal.fine_print %></p>
+    <p>Highlights: <%= @deal.highlights %></p>
+    <p>Description: <%= @deal.description %></p>
+    <p>Fulfillment Method: <%= @deal.fulfill_method %></p>
+    <p>Freight Allowwance: <%= @deal.freight_allowance %></p>
+    <p>Maximum Delivery Days: <%= @deal.max_delivery_days %></p>
+    <p>Courier: <%= @deal.courier %></p>
+    <p>Shipping SLA: <%= @deal.shipping_sla %></p>
+    <p>Brand: <%= @deal.brand %></p>
+
+    <%= link_to 'Back', root_path, :class => "btn btn-default" %>
+</div>
