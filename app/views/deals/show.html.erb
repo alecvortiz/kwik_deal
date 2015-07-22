@@ -19,5 +19,10 @@
     <p>Shipping SLA: <%= @deal.shipping_sla %></p>
     <p>Brand: <%= @deal.brand %></p>
 
+    <%= render @deal.products %>
+    
     <%= link_to 'Back', root_path, :class => "btn btn-default" %>
+    <br>
+    <br>
+    
 </div>

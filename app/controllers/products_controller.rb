@@ -13,7 +13,7 @@ class ProductsController < ApplicationController
   
   def edit
     @deal = Deal.find params[:deal_id]
-    @new_product = @deal.products.find param [:id]
+    @product = @deal.products.find params[:id]
   end
   
   def update 

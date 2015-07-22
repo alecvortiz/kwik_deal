@@ -1,9 +1,10 @@
 <p>
 	<strong>Product:</strong>
+	<%= product.option_name %>
 </p>
 
 <p>
-	<%= link_to 'Edit Product', edit_deal_product_path(@deal, product) %>
+	<%= link_to 'Edit Product', edit_deal_product_path(@deal, product) %> |
 	<%= link_to 'Delete Product', [product.deal, product],
 	method: :delete,
 	data: {confirm: 'Are you sure you want to delete this product?'} 
