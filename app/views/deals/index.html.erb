@@ -6,7 +6,8 @@
  <% @deals.each do |deal| %>
  <p><%= link_to deal.name, deal_path(deal) %>:
   <tr>
-           <td><%= link_to 'Show Deal', deal_path(deal) %> | </td>     
+           <td><%= link_to 'Clone Deal', clone_path(deal) %> | </td>
+           <td><%= link_to 'Show Deal', deal_path(deal) %> | </td>    
            <td><%= link_to 'Edit Deal', edit_deal_path(deal) %> | </td>
            <td><%= link_to 'Delete Deal', [deal],
                                method: :delete,
@@ -14,4 +15,7 @@
       </tr>
  <% end %>
  </p>
+
+<strong><%= link_to 'All Deals', show_all_path %></strong>
+
 </div>

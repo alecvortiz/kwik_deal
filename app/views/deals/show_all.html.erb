@@ -1,0 +1,16 @@
+<div class="container">
+ 
+<h1>All Deals</h1>
+
+ <p>
+    <%= form_tag show_all_path, method: :get do |f| %>
+    <%= text_field_tag :q, params[:q] %>
+    <%= submit_tag "Filter" %>
+    <% end %> 
+</p>
+
+<% @deals.each do |deal| %>
+<p><%= deal.name %></p>
+<% end %>
+
+</div>

@@ -3,7 +3,11 @@ Rails.application.routes.draw do
   devise_for :users
   
     root 'deals#index'
-
+    
+    
+  get 'show_all' => 'deals#show_all'
+  
+  get '/clone/:id' => 'deals#clone', as: :clone
   
   resources :deals do
     resources :products
