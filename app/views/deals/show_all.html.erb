@@ -10,7 +10,27 @@
 </p>
 
 <% @deals.each do |deal| %>
-<p><%= deal.name %></p>
+<p><%= deal.name %>
+<button class="btn btn-success" onclick="alert('Approved!')"</p>APPROVE</button> 
+<button class="btn btn-danger" onclick="alert('Denied!')"</p>DENY</button>
+<%= deal.stage %>
+
+
+
+<script>
+ myEl.onclick = function(event){
+  <% deal.stage = "approved" %>
+  alert('Approved');
+ };
+  myEl.onclick = function(event){
+  <% deal.stage = "denied" %>
+  alert('Denied');
+ };
+ function myFunction() {
+    document.getElementById("demo").style.color = "red";
+};
+</script>
+
 <% end %>
 
 </div>

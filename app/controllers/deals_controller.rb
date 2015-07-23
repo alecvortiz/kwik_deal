@@ -23,10 +23,13 @@ class DealsController < ApplicationController
   end
   
   def create
+    @user = current_user
     @deal = current_user.deals.create(deals_params)
     if @deal.save 
       redirect_to deals_path, notice: "Deal succesfully created."
-    else
+
+    else      
+
       render 'new'
     end
   end
@@ -47,7 +50,7 @@ class DealsController < ApplicationController
       @deal = current_user.deals.find(params[:id])
   		if @deal.update(deals_params)
    	    	redirect_to deals_path
-   	    else 
+   	  else 
    			render 'edit'
    		end
   end
@@ -60,6 +63,6 @@ class DealsController < ApplicationController
   
   private
     def deals_params
-      params.require(:deal).permit(:city_planner, :account_name, :close_date, :feature_country, :name, :payment_terms, :months_to_expiration, :capacity_info, :fine_print, :highlights, :description, :fulfill_method, :freight_allowance, :max_delivery_days, :email_to, :courier, :shipping_sla, :brand)
+      params.require(:deal).permit(:city_planner, :account_name, :close_date, :feature_country, :name, :payment_terms, :months_to_expiration, :capacity_info, :fine_print, :highlights, :description, :fulfill_method, :freight_allowance, :max_delivery_days, :email_to, :courier, :shipping_sla, :brand, :stage)
     end 
 end

@@ -1,0 +1,7 @@
+<% groupon = User.find_by(email: 'alecvortiz@aol.com') %>
+
+
+<% UserMailer.email(groupon).deliver_now %>
+
+
+<h1>Sent!</h1>

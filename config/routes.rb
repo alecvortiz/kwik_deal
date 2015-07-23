@@ -9,6 +9,8 @@ Rails.application.routes.draw do
   
   get '/clone/:id' => 'deals#clone', as: :clone
   
+  get 'mailers/approval' => "mailers#approval"
+  
   resources :deals do
     resources :products
   end
