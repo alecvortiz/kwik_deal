@@ -1,0 +1,17 @@
+<% def approve(x) %>
+<% x.stage = "approved" %>
+<% x.save %>
+<% end %>
+
+<% def deny(x) %>
+<% x.stage = "denied" %>
+<% x.save %>
+<% end %>
+
+<% @deals.each do |deal| %>
+<p><%= deal.name %>
+<p><%= deal.stage %>
+
+<button class="btn btn-success" onclick="approve(#{<%approve(deal)%>})"</p>APPROVE</button> 
+
+<button class="btn btn-danger" onclick="deny(#{<%deny(deal)%>})"</p>DENY</button>

@@ -6,5 +6,6 @@ class UserMailer < ApplicationMailer
 		    subject: 'New Deal up for Approval',
 		    template_path: 'user_mailer',
 		    template_name: 'approval')
+	   
     end
 end

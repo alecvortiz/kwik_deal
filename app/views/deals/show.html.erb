@@ -1,7 +1,7 @@
 <div class="container">
     <h1>View Deal | <%= link_to 'Add Product', new_deal_product_path(@deal)%></h1> 
     
-    <p>Name: <%= @deal.name %></p>
+    <strong>Name: </strong> <%= @deal.name %><br>
     <p>City Planner: <%= @deal.city_planner %></p>
     <p>Account Name: <%= @deal.account_name %></p>
     <p>Close Date: <%= @deal.close_date %></p>
@@ -21,8 +21,10 @@
 
     <%= render @deal.products %>
     
+    <%= link_to 'Send Approval Email', mailers_approval_path %>
+    <br>
+    <br>
     <%= link_to 'Back', root_path, :class => "btn btn-default" %>
     <br>
     <br>
-    <%= link_to 'Send Approval Email', mailers_approval_path %>
 </div>

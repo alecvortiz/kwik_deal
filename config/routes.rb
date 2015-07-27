@@ -11,6 +11,15 @@ Rails.application.routes.draw do
   
   get 'mailers/approval' => "mailers#approval"
   
+  get 'all_users' => 'deals#all_users'
+  
+  get '/personal/:id' => 'deals#personal', as: :deals_personal
+
+  get '/approve/:id' => 'deals#approve', as: :approve
+  
+  get '/deny/:id' => 'deals#deny', as: :deny
+
+  
   resources :deals do
     resources :products
   end

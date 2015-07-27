@@ -9,6 +9,11 @@ class DealsController < ApplicationController
     @new_product = Product.new(:deal => @product)
   end
   
+  def personal
+    @users = User.all
+	 	@deals = Deal.all
+  end
+  
   def show_all
       @deals = Deal.all
   		if params[:q]
@@ -16,6 +21,15 @@ class DealsController < ApplicationController
   		else
   		   @deals = Deal.all
   		end  
+	end
+	
+	def all_users
+	  @deals = Deal.all
+		if params[:q]
+			@users = User.where("email LIKE ?", "%#{params[:q]}%")
+		else
+		   @users = User.all
+		end
 	end
   
   def new
@@ -25,6 +39,7 @@ class DealsController < ApplicationController
   def create
     @user = current_user
     @deal = current_user.deals.create(deals_params)
+    @deal.stage = "Need Review"
     if @deal.save 
       redirect_to deals_path, notice: "Deal succesfully created."
 
@@ -60,6 +75,22 @@ class DealsController < ApplicationController
 	 	deal.destroy
 	 	redirect_to "/", notice: "Deal successfully deleted."
   end 
+  
+  def approve
+    @deals = Deal.all
+    deal = Deal.find(params[:id])
+    deal.stage = "Approved"
+    deal.save
+      render 'show_all'
+  end
+  
+  def deny
+    @deals = Deal.all
+    deal = Deal.find(params[:id])
+    deal.stage = "Denied"
+    deal.save
+      render 'show_all'
+  end
   
   private
     def deals_params

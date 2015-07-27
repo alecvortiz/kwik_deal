@@ -1,0 +1,18 @@
+<div class="container">
+    
+    <h1> All Users</h1>
+       
+    <p> 
+        <%= form_tag all_users_path, method: :get do |f| %>
+        <%= text_field_tag :q, params[:q] %>
+        <%= submit_tag "Search" %>
+        <% end %> 
+    </p>
+
+        <% @users.each do |user| %>
+        <p><%= link_to user.email, deals_personal_path(user) %></p>
+	    <% end %>
+
+	<%= link_to 'Back', root_path, :class => "btn btn-default" %>
+              
+</div>
