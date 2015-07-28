@@ -1,4 +1,5 @@
 <div class="container">
+ 
  <h1> My Deals </h1>
  
  <% @deals.each do |deal| %>
@@ -13,11 +14,5 @@
       </tr>
  <% end %>
  </p>
-
-<br>
-
-<p><%= link_to 'Create Deal', new_deal_path(current_user), :class => "btn btn-default"  %> 
-| <%= link_to 'All Deals', show_all_path, :class => "btn btn-default" %> 
-| <%= link_to 'All Users', all_users_path, :class => "btn btn-default" %></p>
 
 </div>
