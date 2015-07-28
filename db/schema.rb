@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150727115901) do
+ActiveRecord::Schema.define(version: 20150728121349) do
 
   create_table "deals", force: :cascade do |t|
     t.integer  "user_id"
@@ -72,6 +72,7 @@ ActiveRecord::Schema.define(version: 20150727115901) do
     t.float    "master_carton_weight"
     t.datetime "created_at",               null: false
     t.datetime "updated_at",               null: false
+    t.float    "unit_buy_price"
   end
 
   create_table "users", force: :cascade do |t|
@@ -88,6 +89,8 @@ ActiveRecord::Schema.define(version: 20150727115901) do
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
     t.integer  "role"
+    t.integer  "merchant_id"
+    t.string   "account_name"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true

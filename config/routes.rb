@@ -19,6 +19,9 @@ Rails.application.routes.draw do
   
   get '/deny/:id' => 'deals#deny', as: :deny
 
+  resources :users do
+    resources :deals 
+  end
   
   resources :deals do
     resources :products

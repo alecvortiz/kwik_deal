@@ -1,5 +1,23 @@
 <div class="container">
-    <h1>Edit Deal</h1>
-    <%= render 'form' %>
-    <%= link_to 'Back', root_path, :class => "btn btn-default" %>
+    <% if current_user.role == "admin" %>
+        <h1>Complete Deal</h1>
+        <h3> Deal Summary: </h3>
+        <p>Account Name: <%= @deal.account_name %></p>
+        <p>City Planner: <%= @deal.city_planner %></p>
+        <p>Payment Terms: <%= @deal.payment_terms %></p>
+        <p>Months to Expiration: <%= @deal.months_to_expiration %></p>
+        <p>Fine Print: <%= @deal.fine_print %></p>
+        <p>Fulfillment Method: <%= @deal.fulfill_method %></p>
+        <p>Freight Allowance: <%= @deal.freight_allowance %></p>
+        <p>Maximum Delivery Days: <%= @deal.max_delivery_days %></p>
+        <p>Courier: <%= @deal.courier %></p>
+        <%= render 'admin_form' %>
+    <% else %>
+        <h1>Edit Deal</h1>
+        <%= render 'form' %>
+    <% end %>
+    <br>
+        <%= link_to 'Back', :back, :class => "btn btn-default" %>
+    <br>
+    <br>
 </div>

@@ -3,10 +3,9 @@
  <h1> My Deals </h1>
  
  <% @deals.each do |deal| %>
- <p><%= link_to deal.name, deal_path(deal) %>:
+ <p><%= link_to deal.name, deal_path(deal) %> :
   <tr>
            <td><%= link_to 'Clone Deal', clone_path(deal) %> | </td>
-           <td><%= link_to 'Show Deal', deal_path(deal) %> | </td>    
            <td><%= link_to 'Edit Deal', edit_deal_path(deal) %> | </td>
            <td><%= link_to 'Delete Deal', [deal],
                                method: :delete,

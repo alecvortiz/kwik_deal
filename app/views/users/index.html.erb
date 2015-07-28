@@ -10,8 +10,11 @@
     </p>
 
         <% @users.each do |user| %>
-            
-            <p><%= link_to 'Edit User', edit_user_path(user) %></p>
+            <% if user.merchant_id.nil? %>
+                <p><%= link_to user.email, user_path(user) %></p>
+            <% else %>
+                <p>Merchant Id: <%= link_to user.merchant_id, user_path(user) %></p>
+            <% end %>
             
 	    <% end %>
 

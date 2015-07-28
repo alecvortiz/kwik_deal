@@ -13,8 +13,10 @@
 <h2><%= link_to deal.name, deal_path(deal) %></h2>
 <p><%= deal.stage %></p>
 
+<% if deal.stage != "Complete" %>
 <%=link_to 'Approve', :action => :approve, :id => deal.id%>
 | <%=link_to 'Deny', :action => :deny, :id => deal.id%>
+<% end %>
 
 <% end %>
 

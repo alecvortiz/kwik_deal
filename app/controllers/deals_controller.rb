@@ -58,7 +58,7 @@ class DealsController < ApplicationController
   end
   
   def edit
-    	 	@deal = current_user.deals.find params[:id]
+    	 	@deal = Deal.find params[:id]
   end
   
   def update 

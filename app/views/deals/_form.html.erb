@@ -13,26 +13,17 @@
 <% end %>
 
 <%= simple_form_for(@deal) do |f| %>
-
     <p><%= f.input :name, :placeholder  => "Opportunity Name", :label_html => { :class => 'text-right' }, :input_html=> { :class => "form-control" } %></p>
     <p><%= f.input :account_name, :placeholder  => "Account Name", :label_html => { :class => 'text-right' }, :input_html=> { :class => "form-control" } %></p>
-    <p><%= f.input :city_planner, :placeholder => "City Planner", :label_html => { :class => 'text-right' }, :input_html=> { :class => "form-control" } %></p>
-    <p><%= f.input :close_date, :close_date  => "Close Date", :label_html => { :class => 'text-right' } %></p>
     <p><%= f.input :feature_country, :priority => ["South Africa"] %></p>
-    <p><%= f.input :payment_terms, :placeholder  => "Payment Terms", :label_html => { :class => 'text-right' }, :input_html=> { :class => "form-control" } %></p>
-    <p><%= f.input :months_to_expiration, :placeholder  => "Months to Expiration", :label_html => { :class => 'text-right' }, :input_html=> { :class => "form-control" } %></p>
     <p><%= f.input :email_to, :placeholder   => "Email List To", :label_html => { :class => 'text-right' }, :input_html=> { :class => "form-control" } %></p>
     <p><%= f.input :capacity_info, :placeholder  => "Capacity Information", :label_html => { :class => 'text-right' }, :input_html=> { :class => "form-control" } %></p>
-    <p><%= f.input :fine_print, :placeholder   => "Fine Print", :label_html => { :class => 'text-right' }, :input_html=> { :class => "form-control" } %></p>
     <p><%= f.input :highlights, :placeholder   => "Highlights", :label_html => { :class => 'text-right' }, :input_html=> { :class => "form-control" } %></p>
     <p><%= f.input :description, :placeholder   => "Description", :label_html => { :class => 'text-right' }, :input_html=> { :class => "form-control" } %></p>
-    <p><%= f.input :fulfill_method, :placeholder  => "Fulfillment Method", :label_html => { :class => 'text-right' }, :input_html=> { :class => "form-control" } %></p>
-    <p><%= f.input :freight_allowance, :placeholder  => "Freight Allowance", :label_html => { :class => 'text-right' }, :input_html=> { :class => "form-control" } %></p>
-    <p><%= f.input :max_delivery_days, :placeholder  => "Maximum Delivery Days", :label_html => { :class => 'text-right' }, :input_html=> { :class => "form-control" } %></p>
-    <p><%= f.input :courier, :placeholder  => "Courier", :label_html => { :class => 'text-right' }, :input_html=> { :class => "form-control" } %></p>
     <p><%= f.input :shipping_sla, :placeholder  => "Shipping SLA", :label_html => { :class => 'text-right' }, :input_html=> { :class => "form-control" } %></p>
     <p><%= f.input :brand, :placeholder  => "Brand/Manufacturer", :label_html => { :class => 'text-right' }, :input_html=> { :class => "form-control" } %></p>
-    
+
+
     <%= f.submit :class => "btn btn-success" %>
 
 <% end %><br>

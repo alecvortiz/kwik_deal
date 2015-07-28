@@ -1,27 +1,35 @@
 <div class="container">
-    <h1>View Deal | <%= link_to 'Add Product', new_deal_product_path(@deal)%></h1> 
+    <h1><%= @deal.name %> | <%= link_to 'Add Product', new_deal_product_path(@deal)%></h1> 
     
-    <strong>Name: </strong> <%= @deal.name %><br>
-    <p>City Planner: <%= @deal.city_planner %></p>
-    <p>Account Name: <%= @deal.account_name %></p>
-    <p>Close Date: <%= @deal.close_date %></p>
+    
+    <% if current_user.role == "admin" %> 
+        <p>Account Name: <%= @deal.account_name %></p>
+        <p>City Planner: <%= @deal.city_planner %></p>
+        <p>Payment Terms: <%= @deal.payment_terms %></p>
+        <p>Months to Expiration: <%= @deal.months_to_expiration %></p>
+        <p>Fine Print: <%= @deal.fine_print %></p>
+        <p>Fulfillment Method: <%= @deal.fulfill_method %></p>
+        <p>Freight Allowance: <%= @deal.freight_allowance %></p>
+        <p>Maximum Delivery Days: <%= @deal.max_delivery_days %></p>
+        <p>Courier: <%= @deal.courier %></p>
+    <% end %> 
+
     <p>Email Link To: <%= @deal.email_to %></p>
-    <p>Payment Terms: <%= @deal.payment_terms %></p>
-    <p>Months to Expiration: <%= @deal.months_to_expiration %></p>
     <p>Capacity Information: <%= @deal.capacity_info %></p>
-    <p>Fine Print: <%= @deal.fine_print %></p>
     <p>Highlights: <%= @deal.highlights %></p>
     <p>Description: <%= @deal.description %></p>
-    <p>Fulfillment Method: <%= @deal.fulfill_method %></p>
-    <p>Freight Allowwance: <%= @deal.freight_allowance %></p>
-    <p>Maximum Delivery Days: <%= @deal.max_delivery_days %></p>
-    <p>Courier: <%= @deal.courier %></p>
+    
     <p>Shipping SLA: <%= @deal.shipping_sla %></p>
     <p>Brand: <%= @deal.brand %></p>
-
+    <p>Timestamp: <%= @deal.created_at %></p>
+    
     <%= render @deal.products %>
     
-    <%= link_to 'Send Approval Email', mailers_approval_path, :class => "btn btn-default" %>
+    <% if current_user.role == "employee" %>
+        <%= link_to 'Send Approval Email', mailers_approval_path, :class => "btn btn-default" %>
+    <% end %>
+    
+    <%= link_to 'Back', :back, :class => "btn btn-default" %>
     <br>
     <br>
 
