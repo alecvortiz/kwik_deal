@@ -10,11 +10,13 @@ class DealsController < ApplicationController
   end
   
   def personal
+    redirect_to deals_path, notice: "You need to be an admin to view that page." unless current_user && current_user.admin?
     @users = User.all
 	 	@deals = Deal.all
   end
   
   def show_all
+      redirect_to deals_path, notice: "You need to be an admin to view that page." unless current_user && current_user.admin?
       @deals = Deal.all
   		if params[:q]
   			@deals = Deal.where("stage LIKE ? or name LIKE ?", "%#{params[:q]}%", "%#{params[:q]}%")
@@ -24,6 +26,7 @@ class DealsController < ApplicationController
 	end
 	
 	def all_users
+	  redirect_to deals_path, notice: "You need to be an admin to view that page." unless current_user && current_user.admin?
 	  @deals = Deal.all
 		if params[:q]
 			@users = User.where("email LIKE ?", "%#{params[:q]}%")

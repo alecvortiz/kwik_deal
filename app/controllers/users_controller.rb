@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
     def index
+        redirect_to deals_path, notice: "You need to be an admin to view that page." unless current_user && current_user.admin?
         @users = Deal.all
 		if params[:q]
 			@users = User.where("email LIKE ?", "%#{params[:q]}%")
@@ -9,14 +10,17 @@ class UsersController < ApplicationController
     end
     
     def show
+    	redirect_to deals_path, notice: "You need to be an admin to view that page." unless current_user && current_user.admin?
         @user = User.find(params[:id])
     end
     
     def edit
+    	redirect_to deals_path, notice: "You need to be an admin to view that page." unless current_user && current_user.admin?
         @user = User.find(params[:id])
     end 
     
     def update
+    	redirect_to deals_path, notice: "You need to be an admin to view that page." unless current_user && current_user.admin?
 		@user = User.find(params[:id])
 
 		if @user.update(edit_user_params)
@@ -26,6 +30,7 @@ class UsersController < ApplicationController
 		end
 	end
 	def destroy
+		redirect_to deals_path, notice: "You need to be an admin to view that page." unless current_user && current_user.admin?
 		@user = User.find(params[:id])
 		@user.destroy
 
