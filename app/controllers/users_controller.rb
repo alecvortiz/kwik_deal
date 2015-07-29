@@ -15,10 +15,12 @@ class UsersController < ApplicationController
     end
     
     def edit
+    	redirect_to deals_path, notice: "You need to be an admin to view that page." unless current_user && current_user.admin?
         @user = User.find(params[:id])
     end 
     
     def update
+    	redirect_to deals_path, notice: "You need to be an admin to view that page." unless current_user && current_user.admin?
 		@user = User.find(params[:id])
 
 		if @user.update(edit_user_params)
