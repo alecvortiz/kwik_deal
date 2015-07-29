@@ -1,9 +1,0 @@
-User.create!([
-  {email: "jwalkk@umich.edu", password: "password", password_confirmation: "password", reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil, sign_in_count: 1, current_sign_in_at: "2015-07-29 09:49:18", last_sign_in_at: "2015-07-29 09:49:18", current_sign_in_ip: "41.71.72.202", last_sign_in_ip: "41.71.72.202", role: 1, merchant_id: nil, account_name: nil},
-  {email: "alecvortiz@aol.com", password: "password", password_confirmation: "password", reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil, sign_in_count: 2, current_sign_in_at: "2015-07-29 11:31:09", last_sign_in_at: "2015-07-29 09:49:24", current_sign_in_ip: "41.71.72.202", last_sign_in_ip: "41.71.72.202", role: 1, merchant_id: nil, account_name: nil},
-  {email: "sarah@gmail.com", password: "password", password_confirmation: "password", reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil, sign_in_count: 1, current_sign_in_at: "2015-07-29 11:32:10", last_sign_in_at: "2015-07-29 11:32:10", current_sign_in_ip: "41.71.72.202", last_sign_in_ip: "41.71.72.202", role: 1, merchant_id: nil, account_name: ""}
-])
-Deal.create!([
-  {user_id: 1, city_planner: nil, account_name: "", close_date: nil, feature_country: "ZA", name: "abc deal", payment_terms: nil, months_to_expiration: nil, capacity_info: nil, fine_print: nil, highlights: "", description: "", fulfill_method: nil, freight_allowance: nil, max_delivery_days: nil, email_to: "", courier: nil, shipping_sla: nil, brand: "", stage: "Need Review"},
-  {user_id: 2, city_planner: nil, account_name: "", close_date: nil, feature_country: "ZA", name: "Eagle Eggs", payment_terms: nil, months_to_expiration: nil, capacity_info: nil, fine_print: nil, highlights: "", description: "", fulfill_method: nil, freight_allowance: nil, max_delivery_days: nil, email_to: "", courier: nil, shipping_sla: nil, brand: "", stage: "Need Review"}
-])
