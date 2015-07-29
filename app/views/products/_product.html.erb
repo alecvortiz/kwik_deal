@@ -30,6 +30,7 @@
 	<p>Master Carton Length: <%= product.master_carton_length %></p>
 	<p>Master Carton Width: <%= product.master_carton_width %></p>
 	<p>Master Carton Weight: <%= product.master_carton_weight %></p>
+	<p><%= image_tag product.avatar.url(:medium) %></p>
 
 <p>
 	<%= link_to 'Edit Product', edit_deal_product_path(@deal, product) %> |

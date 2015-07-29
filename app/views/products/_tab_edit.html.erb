@@ -40,6 +40,22 @@
                             </div>
                         </div>
                     </div>
+
+                <div class = "modal_body">
+                    <div class="row">
+                        <div class="col-med-offset-3 col-md-6">
+                            <%= f.input :avatar, as: :file %>
+                               
+                               <% if !@deal.products.find(params[:id]).avatar_file_name.nil? %>
+                                <p> Current Attachment: </p>
+                                <p><%= image_tag @deal.products.find(params[:id]).avatar.url(:thumb) %></p>
+                               <% end %>
+                        </div>
+                    </div>
+                </div>
+
+              
+
                     <div class = "modal_body">
                         <div class="row">
                             <div class="col-med-offset-3 col-md-6">

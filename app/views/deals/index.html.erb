@@ -4,7 +4,12 @@
  
  <% @deals.each do |deal| %>
  <p><%= link_to deal.name, deal_path(deal) %> :
+ <% if !deal.products[0].nil? %>
+ 	<%= image_tag deal.products[0].avatar.url(:thumb) %>
+ <% end %>
+
   <tr>
+
            <td><%= link_to 'Clone Deal', clone_path(deal) %> | </td>
            <td><%= link_to 'Edit Deal', edit_deal_path(deal) %> | </td>
            <td><%= link_to 'Delete Deal', [deal],
@@ -15,3 +20,5 @@
  </p>
 
 </div>
+
+
