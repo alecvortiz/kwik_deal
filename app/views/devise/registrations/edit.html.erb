@@ -18,6 +18,13 @@
   <br>
   
   <div class="field">
+    <%= f.label :account_name %><br />
+    <%= f.text_field :account_name %>
+  </div>
+  
+  <br>
+  
+  <div class="field">
     <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
     <%= f.password_field :password, autocomplete: "off" %>
   </div>

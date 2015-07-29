@@ -55,7 +55,15 @@ class DealsController < ApplicationController
   def clone
     @deals = current_user.deals
     @deal = current_user.deals.find(params[:id]).dup
-    @deal.products = current_user.deals.find(params[:id]).products
+    count = 0
+    @deal.products = []
+    current_user.deals.find(params[:id]).products do |product|
+      @deal.products[count] = product.dup
+      @deal.products[count].save
+      count = count + 1
+    end
+      
+    # @deal.products = current_user.deals.find(params[:id]).products
     @deal.save
     render 'index'
   end

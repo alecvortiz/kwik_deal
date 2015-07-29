@@ -10,10 +10,10 @@
     </p>
 
         <% @users.each do |user| %>
-            <% if user.merchant_id.nil? %>
+            <% if user.account_name.nil? %>
                 <p><%= link_to user.email, user_path(user) %></p>
             <% else %>
-                <p>Merchant Id: <%= link_to user.merchant_id, user_path(user) %></p>
+                <p>Account Name: <%= link_to user.account_name, user_path(user) %></p>
             <% end %>
             
 	    <% end %>
