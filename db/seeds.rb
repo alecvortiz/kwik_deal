@@ -1,7 +1,9 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
-#
-# Examples:
-#
-#   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
-#   Mayor.create(name: 'Emanuel', city: cities.first)
+User.create!([
+  {email: "jwalkk@umich.edu", encrypted_password: "$2a$10$fzy9pRq0HegvAMMp.9DBZevmR/a65D9ES4jNplW70a9NgWHc0GbKO", reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil, sign_in_count: 1, current_sign_in_at: "2015-07-29 09:49:18", last_sign_in_at: "2015-07-29 09:49:18", current_sign_in_ip: "41.71.72.202", last_sign_in_ip: "41.71.72.202", role: 1, merchant_id: nil, account_name: nil},
+  {email: "alecvortiz@aol.com", encrypted_password: "$2a$10$Lm5zGXIlo4iXrk/OtucWBeorjFoPIMWbbNQgTOndLv2zEi7Mp8maK", reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil, sign_in_count: 2, current_sign_in_at: "2015-07-29 11:31:09", last_sign_in_at: "2015-07-29 09:49:24", current_sign_in_ip: "41.71.72.202", last_sign_in_ip: "41.71.72.202", role: 1, merchant_id: nil, account_name: nil},
+  {email: "sarah@gmail.com", encrypted_password: "$2a$10$0wGCcDwe12AP9gCEqLf0x.Xsb51Z0MBZVXtL5FZ4kURb4bGpof6Qi", reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil, sign_in_count: 1, current_sign_in_at: "2015-07-29 11:32:10", last_sign_in_at: "2015-07-29 11:32:10", current_sign_in_ip: "41.71.72.202", last_sign_in_ip: "41.71.72.202", role: 1, merchant_id: nil, account_name: ""}
+])
+Deal.create!([
+  {user_id: 1, city_planner: nil, account_name: "", close_date: nil, feature_country: "ZA", name: "abc deal", payment_terms: nil, months_to_expiration: nil, capacity_info: nil, fine_print: nil, highlights: "", description: "", fulfill_method: nil, freight_allowance: nil, max_delivery_days: nil, email_to: "", courier: nil, shipping_sla: nil, brand: "", stage: "Need Review"},
+  {user_id: 2, city_planner: nil, account_name: "", close_date: nil, feature_country: "ZA", name: "Eagle Eggs", payment_terms: nil, months_to_expiration: nil, capacity_info: nil, fine_print: nil, highlights: "", description: "", fulfill_method: nil, freight_allowance: nil, max_delivery_days: nil, email_to: "", courier: nil, shipping_sla: nil, brand: "", stage: "Need Review"}
+])
