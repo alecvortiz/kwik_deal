@@ -3,29 +3,21 @@
 #
 #   Ensure the SQLite 3 gem is defined in your Gemfile
 #   gem 'sqlite3'
+
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+  timeout: 5000
 #
 development: 
   adapter: sqlite3
   pool: 5
   timeout: 5000
-  database: kwik_development
-
-production:
-  adapter: postgresql
-  encoding: unicode
-  database: kwik_development
-  pool: 5
-
+  database: db/development.sqlite3
 
 test:
   adapter: postgresql
   encoding: unicode
   database: kwik_test
   pool: 5
-
-
-default: &default
-      adapter: postgresql
-      encoding: unicode
-      pool: 5
-      timeout: 5000

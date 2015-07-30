@@ -66,6 +66,7 @@ class DealsController < ApplicationController
     end
       
     # @deal.products = current_user.deals.find(params[:id]).products
+    
     @deal.save
     render 'index'
   end
