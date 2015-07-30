@@ -20,3 +20,7 @@ BUGS
 
 Not cloning products
 User search
+
+<% if deal.name == deal.name && deal.sell_price > deal.sell_price %>
+<% display flag %>
+<% end %>
