@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
     def index
         redirect_to deals_path, notice: "You need to be an admin to view that page." unless current_user && current_user.admin?
-        @users = Deal.all
+        @users = User.all
 		if params[:q]
 			@users = User.where("email LIKE ? or account_name LIKE ? or merchant_id LIKE ?", "%#{params[:q]}%", "%#{params[:q]}%", "%#{params[:q]}%")
 		else
