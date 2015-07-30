@@ -15,3 +15,8 @@
 <button class="btn btn-success" onclick="approve(#{<%approve(deal)%>})"</p>APPROVE</button> 
 
 <button class="btn btn-danger" onclick="deny(#{<%deny(deal)%>})"</p>DENY</button>
+
+BUGS
+
+Not cloning products
+User search
