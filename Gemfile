@@ -29,6 +29,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem "paperclip", "~> 4.3"
 
 gem 'seed_dump'
+gem 'amoeba', :git => "git://github.com/amoeba-rb/amoeba.git", :ref => '6ebb1a26393ce66f668e3582e6a938aed3431e91'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

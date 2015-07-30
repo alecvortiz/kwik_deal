@@ -54,19 +54,18 @@ class DealsController < ApplicationController
   
   def clone
     @deals = current_user.deals
-    @deal = current_user.deals.find(params[:id]).dup
+    @deal = current_user.deals.find(params[:id]).amoeba_dup
     @deal.stage = "Need Review"
     # count = 0
-    @deals.find(params[:id]).products do |product|
-      @product = @deal.products.new
-      @product = product.dup
-      # @deal.products[count] = product.dup
-      @product.save
-      # count = count + 1
-    end
+    # @deals.find(params[:id]).products do |product|
+    #   @product = @deal.products.new
+    #   @product = product.dup
+    #   # @deal.products[count] = product.dup
+    #   @product.save
+    #   # count = count + 1
+    # end
       
     # @deal.products = current_user.deals.find(params[:id]).products
-    
     @deal.save
     render 'index'
   end

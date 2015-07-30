@@ -1,3 +1,11 @@
+GIT
+  remote: git://github.com/amoeba-rb/amoeba.git
+  revision: 6ebb1a26393ce66f668e3582e6a938aed3431e91
+  ref: 6ebb1a26393ce66f668e3582e6a938aed3431e91
+  specs:
+    amoeba (3.0.0)
+      activerecord (>= 3.2.6)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -197,6 +205,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  amoeba!
   byebug
   coffee-rails (~> 4.1.0)
   country_select
