@@ -16,6 +16,12 @@ development:
   timeout: 5000
   database: db/development.sqlite3
 
+production:
+  adapter: postgresql
+  encoding: unicode
+  database: kwik_development
+  pool: 5
+
 test:
   adapter: postgresql
   encoding: unicode
