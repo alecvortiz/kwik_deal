@@ -12,6 +12,7 @@
         <p>Freight Allowance: <%= @deal.freight_allowance %></p>
         <p>Maximum Delivery Days: <%= @deal.max_delivery_days %></p>
         <p>Courier: <%= @deal.courier %></p>
+        <p>Division: Merchandizing (ZA) </p>
     <% end %> 
 
     <p>Email Link To: <%= @deal.email_to %></p>
@@ -21,7 +22,7 @@
     
     <p>Shipping SLA: <%= @deal.shipping_sla %></p>
     <p>Brand: <%= @deal.brand %></p>
-    <% if deal.cloned %>
+    <% if @deal.cloned %>
         <p>Timestamp: <%= @deal.updated_at %></p>
     <% else %>
         <p>Timestamp: <%= @deal.created_at %></p>

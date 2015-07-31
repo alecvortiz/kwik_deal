@@ -25,15 +25,6 @@ class DealsController < ApplicationController
   		end  
 	end
 	
-	def all_users
-	  redirect_to deals_path, notice: "You need to be an admin to view that page." unless current_user && current_user.admin?
-	  @deals = Deal.all
-		if params[:q]
-			@users = User.where("email LIKE ?", "%#{params[:q]}%")
-		else
-		   @users = User.all
-		end
-	end
   
   def new
     @deal = Deal.new
