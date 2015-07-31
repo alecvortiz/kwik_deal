@@ -1,15 +1,25 @@
 <%= simple_form_for(@deal) do |f| %>
-        <p><%= f.input :close_date, :close_date  => "Close Date", :label_html => { :class => 'text-right' } %></p>
+        <p><%= f.input :name, :placeholder  => "Opportunity Name", :label_html => { :class => 'text-right' }, :input_html=> { :class => "form-control" } %></p>
+        <p><%= f.input :account_name, :placeholder  => "Account Name", :label_html => { :class => 'text-right' }, :input_html=> { :class => "form-control" } %></p>
+        <p><%= f.input :feature_country, :priority => ["South Africa"] %></p>
+        <p><%= f.input :email_to, :placeholder   => "Email List To", :label_html => { :class => 'text-right' }, :input_html=> { :class => "form-control", :value => @deal.user.email } %></p>
+        <p><%= f.input :capacity_info, :placeholder  => "Capacity Information", :label_html => { :class => 'text-right' }, :input_html=> { :class => "form-control" } %></p>
+        <p><%= f.input :highlights, :placeholder   => "Highlights", :label_html => { :class => 'text-right' }, :input_html=> { :class => "form-control" } %></p>
         <p><%= f.input :city_planner, :placeholder => "City Planner", :label_html => { :class => 'text-right' }, :input_html=> { :class => "form-control" } %></p>
-        <p><%= f.input :payment_terms, :placeholder  => "Payment Terms", :label_html => { :class => 'text-right' }, :input_html=> { :class => "form-control" } %></p>
+        <p><%= f.input :payment_terms, :placeholder  => "Payment Terms", :label_html => { :class => 'text-right' }, :input_html=> { :class => "form-control", :value => 'Net 30 DCO' } %></p>
         <p><%= f.input :months_to_expiration, :placeholder  => "Months to Expiration", :label_html => { :class => 'text-right' }, :input_html=> { :class => "form-control" } %></p>
-        <p><%= f.input :fine_print, :placeholder   => "Fine Print", :label_html => { :class => 'text-right' }, :input_html=> { :class => "form-control" } %></p>
-        <p><%= f.input :fulfill_method, :placeholder  => "Fulfillment Method", :label_html => { :class => 'text-right' }, :input_html=> { :class => "form-control" } %></p>
-        <p><%= f.input :freight_allowance, :placeholder  => "Freight Allowance", :label_html => { :class => 'text-right' }, :input_html=> { :class => "form-control" } %></p>
-        <p><%= f.input :max_delivery_days, :placeholder  => "Maximum Delivery Days", :label_html => { :class => 'text-right' }, :input_html=> { :class => "form-control" } %></p>
-        <p><%= f.input :courier, :placeholder  => "Courier", :label_html => { :class => 'text-right' }, :input_html=> { :class => "form-control" } %></p>
+        <p><%= f.input :fine_print, :placeholder   => "Fine Print", :label_html => { :class => 'text-right' }, :input_html=> { :class => "form-control", :value => 'Your order: Delivery for this product will occur within 2 weeks. Please note delivery for orders paid by EFT might be delayed up to 5 days. EFT’s not processed when deal closes will be refunded. Enter your daytime delivery address during checkout. No further action required. Delivery address cannot be changed after purchase has been made. Further information: Notify support@groupon.co.za within 7 days of delivery. Returns are accepted only if in original packaging. Opened packages will not be accepted for returns. See the rules that apply to all deals.'} %></p>
+        <p><%= f.input :fulfill_method, :placeholder  => "Fulfillment Method", :label_html => { :class => 'text-right' }, :input_html=> { :class => "form-control", :value => 'Drop ship (Supplier small parcel)'  } %></p>
+        <p><%= f.input :description, :placeholder  => "Description", :label_html => { :class => 'text-right' }, :input_html=> { :class => "form-control" } %></p>
+        <p><%= f.input :freight_allowance, :placeholder  => "Freight Allowance", :label_html => { :class => 'text-right' }, :input_html=> { :class => "form-control", :value => 2.0 } %></p>
+        <p><%= f.input :max_delivery_days, :placeholder  => "Maximum Delivery Days", :label_html => { :class => 'text-right' }, :input_html=> { :class => "form-control", :value => 14 } %></p>
+        <p><%= f.input :shipping_sla, :placeholder  => "Shipping SLA", :label => 'Shipping SLA', :input_html=> { :class => "form-control", :value => 4 } %></p>
+        <p><%= f.input :courier, :placeholder  => "Courier", :label_html => { :class => 'text-right' }, :input_html => { :class => "form-control" } %></p>
+        <p><%= f.input :brand, :placeholder  => "Fulfillment Method", :label_html => { :class => 'text-right' }, :input_html=> { :class => "form-control", :value => 'Groupon Goods'  } %></p>
+        <p><%= f.input :opportunity_record_type, :placeholder  => "Opportunity Record Type", :label_html => { :class => 'text-right' }, :input_html=> { :class => "form-control", :value => "Groupon Goods"  } %></p>
+        <p><%= f.input :refund_allowance, :placeholder  => "Refund Allowance", :label_html => { :class => 'text-right' }, :input_html=> { :class => "form-control", :value => 0  } %></p>
+        <p><%= f.input :notes_to_editorial, :placeholder  => "Notes to Editorial", :label_html => { :class => 'text-right' }, :input_html=> { :class => "form-control" } %></p>
         <p><%= f.input :stage, :collection => ["Complete"] %></p>
-
 
     <%= f.submit :class => "btn btn-success" %>
 <% end %>

@@ -12,7 +12,7 @@
 	</div>
 <% end %>
 
-<%= simple_form_for([@deal, @product]) do |f| %>
+<%= simple_form_for([@deal, @product], multipart: true) do |f| %>
         <div class="tabbable">
             <ul class="nav nav-tabs">
                 <li>

@@ -2,15 +2,9 @@
     <% if current_user.role == "admin" %>
         <h1>Complete Deal</h1>
         <h3> Deal Summary: </h3>
+        <p>Opportunity Name: <%= @deal.name %></p>
         <p>Account Name: <%= @deal.account_name %></p>
-        <p>City Planner: <%= @deal.city_planner %></p>
-        <p>Payment Terms: <%= @deal.payment_terms %></p>
-        <p>Months to Expiration: <%= @deal.months_to_expiration %></p>
-        <p>Fine Print: <%= @deal.fine_print %></p>
-        <p>Fulfillment Method: <%= @deal.fulfill_method %></p>
-        <p>Freight Allowance: <%= @deal.freight_allowance %></p>
-        <p>Maximum Delivery Days: <%= @deal.max_delivery_days %></p>
-        <p>Courier: <%= @deal.courier %></p>
+        <p>Close Date: <%= @deal.created_at %></p>
         <%= render 'admin_form' %>
     <% else %>
         <h1>Edit Deal</h1>

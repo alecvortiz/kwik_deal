@@ -16,12 +16,10 @@
     <p><%= f.input :name, :placeholder  => "Opportunity Name", :label_html => { :class => 'text-right' }, :input_html=> { :class => "form-control" } %></p>
     <p><%= f.input :account_name, :placeholder  => "Account Name", :label_html => { :class => 'text-right' }, :input_html=> { :class => "form-control" } %></p>
     <p><%= f.input :feature_country, :priority => ["South Africa"] %></p>
-    <p><%= f.input :email_to, :placeholder   => "Email List To", :label_html => { :class => 'text-right' }, :input_html=> { :class => "form-control" } %></p>
+    <p><%= f.input :email_to, :placeholder   => "Email List To", :label_html => { :class => 'text-right' }, :input_html=> { :class => "form-control", :value => current_user.email } %></p>
     <p><%= f.input :capacity_info, :placeholder  => "Capacity Information", :label_html => { :class => 'text-right' }, :input_html=> { :class => "form-control" } %></p>
     <p><%= f.input :highlights, :placeholder   => "Highlights", :label_html => { :class => 'text-right' }, :input_html=> { :class => "form-control" } %></p>
     <p><%= f.input :description, :placeholder   => "Description", :label_html => { :class => 'text-right' }, :input_html=> { :class => "form-control" } %></p>
-    <p><%= f.input :shipping_sla, :placeholder  => "Shipping SLA", :label_html => { :class => 'text-right' }, :input_html=> { :class => "form-control" } %></p>
-    <p><%= f.input :brand, :placeholder  => "Brand/Manufacturer", :label_html => { :class => 'text-right' }, :input_html=> { :class => "form-control" } %></p>
 
 
     <%= f.submit :class => "btn btn-success" %>

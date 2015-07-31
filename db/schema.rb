@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150729080359) do
+ActiveRecord::Schema.define(version: 20150731102852) do
 
   create_table "deals", force: :cascade do |t|
     t.integer  "user_id"
@@ -34,8 +34,12 @@ ActiveRecord::Schema.define(version: 20150729080359) do
     t.integer  "shipping_sla"
     t.string   "brand"
     t.string   "stage"
-    t.datetime "created_at",           null: false
-    t.datetime "updated_at",           null: false
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
+    t.boolean  "flag"
+    t.string   "opportunity_record_type"
+    t.float    "refund_allowance"
+    t.text     "notes_to_editorial"
   end
 
   create_table "products", force: :cascade do |t|

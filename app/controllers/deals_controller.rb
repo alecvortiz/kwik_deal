@@ -1,4 +1,5 @@
 class DealsController < ApplicationController
+  include ApplicationController
 
   def index
     @deals = current_user.deals
@@ -42,10 +43,10 @@ class DealsController < ApplicationController
   def create
     @user = current_user
     @deal = current_user.deals.create(deals_params)
-    @deal.stage = "Need Review"
+    @deal.stage = "Prospecting"
+    @deal.flag = false
     if @deal.save 
       redirect_to deals_path, notice: "Deal succesfully created."
-
     else      
 
       render 'new'
@@ -55,23 +56,14 @@ class DealsController < ApplicationController
   def clone
     @deals = current_user.deals
     @deal = current_user.deals.find(params[:id]).amoeba_dup
-    @deal.stage = "Need Review"
-    # count = 0
-    # @deals.find(params[:id]).products do |product|
-    #   @product = @deal.products.new
-    #   @product = product.dup
-    #   # @deal.products[count] = product.dup
-    #   @product.save
-    #   # count = count + 1
-    # end
-      
-    # @deal.products = current_user.deals.find(params[:id]).products
+    @deal.stage = "Prospecting"
+    @deal.flag = false
     @deal.save
     render 'index'
   end
   
   def edit
-    	 	@deal = Deal.find params[:id]
+    @deal = Deal.find params[:id]
   end
   
   def update 

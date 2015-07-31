@@ -27,6 +27,8 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 
 gem "paperclip", "~> 4.3"
+gem 'aws-sdk'
+
 
 gem 'seed_dump'
 gem 'amoeba', :git => "git://github.com/amoeba-rb/amoeba.git", :ref => '6ebb1a26393ce66f668e3582e6a938aed3431e91'

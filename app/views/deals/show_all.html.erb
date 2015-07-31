@@ -11,6 +11,10 @@
 
 <% @deals.each do |deal| %>
 <h2><%= link_to deal.name, deal_path(deal) %></h2>
+<% if deal.flag %>
+    Sell price has been modified 
+    <img src="../img/red_flag.png" HEIGHT = 30 WIDTH = auto>
+<% end %>
 <p><%= deal.stage %></p>
 
 <% if deal.stage != "Complete" %>

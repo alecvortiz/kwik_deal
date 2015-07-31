@@ -25,5 +25,4 @@ User search
 <% display flag %>
 <% end %>
 
-array = 
-<% if deal.name == 
+
