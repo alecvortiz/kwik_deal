@@ -10,18 +10,20 @@
 </p>
 
 <% @deals.each do |deal| %>
-<h2><%= link_to deal.name, deal_path(deal) %></h2>
-<% if deal.flag %>
-    Sell price has been modified 
-    <img src="../img/red_flag.png" HEIGHT = 30 WIDTH = auto>
-<% end %>
-<p><%= deal.stage %></p>
+    <h2><%= link_to deal.name, deal_path(deal) %></h2>
+    <% if deal.flag %>
+        Sell price has been modified 
+        <img src="../img/red_flag.png" HEIGHT = 30 WIDTH = auto>
+    <% end %>
+    <p><%= deal.stage %></p>
 
-<% if deal.stage != "Complete" %>
-<%=link_to 'Approve', :action => :approve, :id => deal.id%>
-| <%=link_to 'Deny', :action => :deny, :id => deal.id%>
-<% end %>
-
+    <% if deal.stage == "Prospecting" || deal.stage == "Deny" %>
+        <%=link_to 'Approve', :action => :approve, :id => deal.id %>
+        |<%=link_to 'Deny', :action => :deny, :id => deal.id %>
+    <% elsif deal.stage == "Approve" %>
+        <%= link_to 'Complete Deal', edit_deal_path(deal) %>
+    <% end %>
+    
 <% end %>
 
 <br>

@@ -21,7 +21,11 @@
     
     <p>Shipping SLA: <%= @deal.shipping_sla %></p>
     <p>Brand: <%= @deal.brand %></p>
-    <p>Timestamp: <%= @deal.created_at %></p>
+    <% if deal.cloned %>
+        <p>Timestamp: <%= @deal.updated_at %></p>
+    <% else %>
+        <p>Timestamp: <%= @deal.created_at %></p>
+    <% end %>
   
     
     <%= render @deal.products %>

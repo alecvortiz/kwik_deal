@@ -57,8 +57,9 @@ class DealsController < ApplicationController
     @deal = current_user.deals.find(params[:id]).amoeba_dup
     @deal.stage = "Prospecting"
     @deal.flag = false
+    @deal.cloned = true
     @deal.save
-    render 'index'
+    render 'clone'
   end
   
   def edit
@@ -95,7 +96,7 @@ class DealsController < ApplicationController
     deal.save
       render 'show_all'
   end
-  
+
   private
     def deals_params
       params.require(:deal).permit(:city_planner, :account_name, :close_date, :feature_country, :name, :payment_terms, :months_to_expiration, :capacity_info, :fine_print, :highlights, :description, :fulfill_method, :freight_allowance, :max_delivery_days, :email_to, :courier, :shipping_sla, :brand, :stage)

@@ -11,15 +11,15 @@ default: &default
   timeout: 5000
 #
 development: 
-  adapter: sqlite3
+  adapter: postgresql
   pool: 5
   timeout: 5000
-  database: db/development.sqlite3
+  database: kwik_development
 
 production:
   adapter: postgresql
   encoding: unicode
-  database: kwik_development
+  database: kwik_production
   pool: 5
 
 test:

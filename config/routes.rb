@@ -16,6 +16,7 @@ Rails.application.routes.draw do
   get '/approve/:id' => 'deals#approve', as: :approve
   
   get '/deny/:id' => 'deals#deny', as: :deny
+  
 
   resources :users do
     resources :deals 

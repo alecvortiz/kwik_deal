@@ -2,6 +2,10 @@
  
  <h1> My Deals </h1>
  
+ <% if @deals.empty? %>
+  <p>You have not created any deals yet.</p>
+ <% end %>
+ 
  <% @deals.each do |deal| %>
  <p><%= link_to deal.name, deal_path(deal) %> :
  <% if !deal.products[0].nil? %>
