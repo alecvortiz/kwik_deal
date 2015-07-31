@@ -1,5 +1,4 @@
 class DealsController < ApplicationController
-  include ApplicationController
 
   def index
     @deals = current_user.deals
