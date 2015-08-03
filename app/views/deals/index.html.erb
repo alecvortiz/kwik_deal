@@ -2,6 +2,13 @@
  
  <h1> My Opportunities </h1>
  
+ <p>
+    <%= form_tag deals_path, method: :get do |f| %>
+    <%= text_field_tag :q, params[:q] %>
+    <%= submit_tag "Filter" %>
+    <% end %> 
+</p>
+ 
  <% if @deals.empty? %>
   <p>You have not created any opportunities yet.</p>
  <% end %>

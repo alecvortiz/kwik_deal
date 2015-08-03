@@ -2,6 +2,11 @@ class DealsController < ApplicationController
 
   def index
     @deals = current_user.deals
+    if params[:q]
+  			@deals = current_user.deals.where("stage LIKE ? or name LIKE ?", "%#{params[:q]}%", "%#{params[:q]}%")
+  		else
+  		   @deals = current_user.deals
+  		end  
   end
 
   def show
