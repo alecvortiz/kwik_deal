@@ -14,28 +14,33 @@
         <p>
             
         </p>
-    <%= link_to deal.name, deal_path(deal) %>
-     <% if !deal.products[0].nil? %>
-  	 <%= image_tag deal.products[0].avatar.url(:thumb) %>
-  	<% end %>
-    <% if deal.flag %>
-        Sell price has been modified 
-        <img src="../img/red_flag.png" HEIGHT = 30 WIDTH = auto>
-    <% end %>
+    
+    <div class="row">
+     <div class="col-md-2">
+        <% if !deal.products[0].nil? %>
+      	     <%= image_tag deal.products[0].avatar.url(:thumb) %>
+      	<% end %>
+     </div>
+     <div class="col-md-8">
+        <%= link_to deal.name, deal_path(deal) %>
+        <% if deal.flag %>
+            Sell price has been modified 
+            <img src="../img/red_flag.png" HEIGHT = 30 WIDTH = auto>
+        <% end %>
     
      	<div class=".col-sm-4">	
-     	     <strong>Description:</strong>
-     	     <p><%= deal.description %></p>
+     	     <p><strong>Account Name:</strong> <%= deal.account_name %></p>
      	     <p><strong>Stage:</strong>
      	     <%= deal.stage %></p>
          </div>
 
-    <% if deal.stage != "Complete" && deal.stage != "Approved" %>
-        <%=link_to 'Approve', :action => :approve, :id => deal.id %>
-        | <%=link_to 'Deny', :action => :deny, :id => deal.id %>
-    <% elsif deal.stage == "Approved" %>
-        <%= link_to 'Complete Deal', edit_deal_path(deal), :class => 'btn btn-primary btn-xs' %>
-    <% end %>
+        <% if deal.stage != "Complete" && deal.stage != "Approved" %>
+            <%=link_to 'Approve', :action => :approve, :id => deal.id %>
+            | <%=link_to 'Deny', :action => :deny, :id => deal.id %>
+        <% elsif deal.stage == "Approved" %>
+            <%= link_to 'Complete Deal', edit_deal_path(deal), :class => 'btn btn-primary btn-xs' %>
+        <% end %>
+    </div>
      <p>
         
     </p>
