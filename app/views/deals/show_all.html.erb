@@ -11,6 +11,9 @@
 
 <% @deals.order(:created_at).reverse.each do |deal| %>
    <div class="foxyboxy">
+        <p>
+            
+        </p>
     <%= link_to deal.name, deal_path(deal) %>
      <% if !deal.products[0].nil? %>
   	 <%= image_tag deal.products[0].avatar.url(:thumb) %>

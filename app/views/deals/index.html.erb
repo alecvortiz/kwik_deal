@@ -13,32 +13,37 @@
     <p>
      
     </p>
-   <%= link_to deal.name, deal_path(deal) %> 
-   <% if deal.cloned %> (c) <% end %>
    
-   <% if !deal.products[0].nil? %>
-  	 <%= image_tag deal.products[0].avatar.url(:thumb) %>
-  	<% end %>
-  	
-  	<div class=".col-sm-4">	
-     	 <strong>Description:</strong>
-     	 <p><%= deal.description %></p>
-     	 <p><strong>Stage:</strong>
-     	 <%= deal.stage %></p>
+   <div class="row">
+     <div class="col-md-2">
+     <% if !deal.products[0].nil? %>
+    	 <%= image_tag deal.products[0].avatar.url(:thumb) %>
+    	<% end %>
+    	</div>
+    	<div class="col-md-8">
+    	 <%= link_to deal.name, deal_path(deal) %> 
+      <% if deal.cloned %> (c) <% end %>
+     	<div class=".col-sm-4">	
+        	 <strong>Description:</strong>
+        	 <p><%= deal.description %></p>
+        	 <p><strong>Stage:</strong>
+        	 <%= deal.stage %></p>
+         </div>
+     	
+     	<div class=".col-sm-2">	
+          <tr>
+               <td><%= link_to 'Clone', clone_path(deal), :class => "btn btn-default btn-xs" %> </td>
+               <% if deal.stage != "Complete" && deal.stage != "Approved" %>
+                <td>  <%= link_to 'Edit', edit_deal_path(deal), :class => "btn btn-success btn-xs" %>  </td>
+                <td><%= link_to 'Delete', [deal],
+                                   method: :delete,
+                                   data: { confirm: 'Are you sure you want to delete this deal?' }, 
+                                   :class => "btn btn-danger btn-xs" %>  </td>
+                <td><%= link_to 'Add Deal Option', new_deal_product_path(deal), :class => 'btn btn-primary btn-xs'%></td>
+               <% end %>
+          </tr>
       </div>
-  	
-  	<div class=".col-sm-2">	
-       <tr>
-            <td><%= link_to 'Clone', clone_path(deal), :class => "btn btn-default btn-xs" %> </td>
-            <% if deal.stage != "Complete" && deal.stage != "Approved" %>
-             <td>  <%= link_to 'Edit', edit_deal_path(deal), :class => "btn btn-success btn-xs" %>  </td>
-             <td><%= link_to 'Delete', [deal],
-                                method: :delete,
-                                data: { confirm: 'Are you sure you want to delete this deal?' }, 
-                                :class => "btn btn-danger btn-xs" %>  </td>
-             <td><%= link_to 'Add Deal Option', new_deal_product_path(deal), :class => 'btn btn-primary btn-xs'%></td>
-            <% end %>
-       </tr>
+     </div>
    </div>
      	
     <p>
