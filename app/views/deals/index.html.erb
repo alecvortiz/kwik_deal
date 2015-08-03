@@ -29,11 +29,11 @@
        <tr>
             <td><%= link_to 'Clone', clone_path(deal), :class => "btn btn-default btn-xs" %> </td>
             <% if deal.stage != "Complete" && deal.stage != "Approved" %>
-             <td> | <%= link_to 'Edit', edit_deal_path(deal), :class => "btn btn-success btn-xs" %> | </td>
+             <td>  <%= link_to 'Edit', edit_deal_path(deal), :class => "btn btn-success btn-xs" %>  </td>
              <td><%= link_to 'Delete', [deal],
                                 method: :delete,
                                 data: { confirm: 'Are you sure you want to delete this deal?' }, 
-                                :class => "btn btn-danger btn-xs" %> | </td>
+                                :class => "btn btn-danger btn-xs" %>  </td>
              <td><%= link_to 'Add Deal Option', new_deal_product_path(deal), :class => 'btn btn-primary btn-xs'%></td>
             <% end %>
        </tr>

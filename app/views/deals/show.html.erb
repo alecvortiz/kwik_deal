@@ -83,7 +83,7 @@
                <td><%= product.sell_number %></td>
                <td>
                    <% if @deal.stage != "Approved" && @deal.stage != "Complete" %>
-                   <%= link_to 'Edit', edit_deal_product_path(@deal, product),  :class => "btn btn-success btn-xs" %> |
+                   <%= link_to 'Edit', edit_deal_product_path(@deal, product),  :class => "btn btn-success btn-xs" %> 
                    <%= link_to 'Delete', [@deal, product],
                                 method: :delete,
                                 data: { confirm: 'Are you sure you want to delete this deal option?' }, 
