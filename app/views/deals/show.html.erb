@@ -67,7 +67,7 @@
                <td><%= link_to product.option_name, deal_product_path(@deal, product) %></td>
                <td><%= product.display_order %></td>
                <td><%= product.unit_buy_price %></td>
-               <% if current_user == "admin" %>
+               <% if current_user.role == "admin" %>
                    <td><%= product.unit_sell_price%></td>
                <% end %>
                <td><%= product.unit_value %></td>

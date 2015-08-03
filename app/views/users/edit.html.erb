@@ -7,7 +7,7 @@
         <%= f.input :role, as: :string, label: "Check box to make admin:" do %>
             <%= f.check_box :role, {}, "admin", "employee" %>
         <% end %>
-        <%= f.submit :class => "btn btn-success" %>
+        <%= f.submit :class => "btn btn-success" %> <%= link_to 'Back', user_path(@user), :class => 'btn btn-default' %>
     <% end %>
-    <%= link_to 'Back', user_path(@user) %>
+    
 </div>
