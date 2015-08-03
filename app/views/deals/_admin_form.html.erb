@@ -19,7 +19,7 @@
         <p><%= f.input :opportunity_record_type, :label  => "Opportunity Record Type", :label_html => { :class => 'text-right' }, :input_html=> { :class => "form-control", :value => "Groupon Goods"  } %></p>
         <p><%= f.input :refund_allowance, :label => "Refund Allowance", :placeholder  => "Refund Allowance", :label_html => { :class => 'text-right' }, :input_html=> { :class => "form-control", :value => 0  } %></p>
         <p><%= f.input :notes_to_editorial, :label  => "Notes to Editorial", :label_html => { :class => 'text-right' }, :input_html=> { :class => "form-control" } %></p>
-        <p><%= f.input :stage, :collection => ["Complete"] %></p>
+        <p><%= f.input :stage, :collection => ["Complete", "Approved", "Denied", "Prospecting"], :value => 'Prospecting' %></p>
 
     <%= f.submit :class => "btn btn-success" %>
 <% end %>

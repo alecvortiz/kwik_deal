@@ -14,15 +14,17 @@
      
     </p>
    <%= link_to deal.name, deal_path(deal) %> 
-   <% if deal.cloned %> (c) <% end %>:
+   <% if deal.cloned %> (c) <% end %>
    
    <% if !deal.products[0].nil? %>
   	 <%= image_tag deal.products[0].avatar.url(:thumb) %>
   	<% end %>
   	
   	<div class=".col-sm-4">	
-     	 <p>Description: <%= deal.description %></p>
-     	 <p>Stage: <%= deal.stage %></p>
+     	 <strong>Description:</strong>
+     	 <p><%= deal.description %></p>
+     	 <strong>Stage:</strong>
+     	 <p><%= deal.stage %></p>
       </div>
   	
   	<div class=".col-sm-2">	

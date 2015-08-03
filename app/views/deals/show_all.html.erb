@@ -12,11 +12,20 @@
 <% @deals.order(:created_at).reverse.each do |deal| %>
    <div class="foxyboxy">
     <%= link_to deal.name, deal_path(deal) %>
+     <% if !deal.products[0].nil? %>
+  	 <%= image_tag deal.products[0].avatar.url(:thumb) %>
+  	<% end %>
     <% if deal.flag %>
         Sell price has been modified 
         <img src="../img/red_flag.png" HEIGHT = 30 WIDTH = auto>
     <% end %>
-    <p>Stage: <%= deal.stage %></p>
+    
+     	<div class=".col-sm-4">	
+     	     <strong>Description:</strong>
+     	     <p><%= deal.description %></p>
+     	     <strong>Stage:</strong>
+     	     <p><%= deal.stage %></p>
+         </div>
 
     <% if deal.stage != "Complete" && deal.stage != "Approved" %>
         <%=link_to 'Approve', :action => :approve, :id => deal.id %>
