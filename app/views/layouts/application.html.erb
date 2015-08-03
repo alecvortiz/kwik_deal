@@ -35,13 +35,13 @@
            <ul class="nav navbar-nav navbar-right">
         
             <% if user_signed_in? %>
-              <li><%= link_to 'My Deals', root_path, :class => 'navbar-link'  %></li>
-              <li><%= link_to 'Create Deal', new_deal_path(current_user), :class => 'navbar-link'  %></li>
+              <li><%= link_to 'My Opportunities', root_path, :class => 'navbar-link'  %></li>
+              <li><%= link_to 'Create Opportunity', new_deal_path(current_user), :class => 'navbar-link'  %></li>
               <% if current_user.role == 'admin' %>
-                <li><%= link_to 'All Deals', show_all_path, :class => 'navbar-link'  %></li>
+                <li><%= link_to 'All Opportunities', show_all_path, :class => 'navbar-link'  %></li>
                 <li><%= link_to 'All Users', users_path, :class => 'navbar-link'  %></li>
               <% end %>
-              <li><%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %></li>
+              <li><%= link_to 'Edit Profile', edit_user_registration_path, :class => 'navbar-link' %></li>
               <li><%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %></li>
             <% else %>
               <li><%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link'  %></li>

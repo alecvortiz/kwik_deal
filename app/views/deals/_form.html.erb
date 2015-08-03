@@ -19,7 +19,7 @@
     <p><%= f.input :email_to, :placeholder   => "Email List To", :label_html => { :class => 'text-right' }, :input_html=> { :class => "form-control", :value => current_user.email } %></p>
     <p><%= f.input :capacity_info, :label => "Capacity Information", :placeholder  => "(e.g. 200)", :label_html => { :class => 'text-right' }, :input_html=> { :class => "form-control" } %></p>
     <p><%= f.input :highlights, :placeholder   => "Selling points from vendor", :label_html => { :class => 'text-right' }, :input_html=> { :class => "form-control" } %></p>
-    <p><%= f.input :description, :placeholder   => "Description", :label_html => { :class => 'text-right' }, :input_html=> { :class => "form-control" } %></p>
+    <p><%= f.input :description, :label_html => { :class => 'text-right' }, :input_html=> { :class => "form-control" } %></p>
     
 
     <%= f.submit :class => "btn btn-success" %>
