@@ -1,53 +1,62 @@
-<div class=container>
-	
-	<strong>Product:</strong>
-	<%= @product.option_name %><br>
-	<p>Expiration Type: <%= @product.expiration_type %></p>
-	<p>Months Until Expiration: <%= @product.months_to_expiration %></p>
-	<p>Days Until Expiration: <%= @product.days_to_expiration %></p>
-	<p>Unit Value: <%= @product.unit_value %></p>
-	<p>Unit Buy Price: <% @product.unit_buy_price %></p>
-	<p>Unit Sell Price: <%= @product.unit_sell_price %></p>
-	<p>Option Comission: <%= @product.option_commission %></p>
-	<p>Buyer Max: <%= @product.buyer_max %></p>
-	<p>Option Cap: <%= @product.option_cap %></p>
-	<p>Display Order: <%= @product.display_order %></p>
-	<p>Sell Number: <%= @product.sell_number %></p>
-	<p>Units Per Carton: <%= @product.units_per_carton %></p>
-	<p>Cartons Per Pallet: <%= @product.cartons_per_pallet %></p>
-	<p>Pallets Stackable: <%= @product.pallets_stackable %></p>
-	<p>Estimated Shipping Cost: <%= @product.est_shipping_cost %></p>
-	<p>Country Origin: <%= @product.country_origin %></p>
-	<p>Dimensions Unit of Measurement: <%= @product.dimensions_uom %></p>
-	<p>Weight Unit of Measurement: <%= @product.weight_uom %></p>
-	<p>Retail Package Height: <%= @product.retail_package_height %></p>
-	<p>Retail Package Length: <%= @product.retail_package_length %></p>
-	<p>Retail Package Width: <%= @product.retail_package_width %></p>
-	<p>Retail Package Weight: <%= @product.retail_package_weight %></p>
-	<p>Product Dimension Height: <%= @product.product_dimension_height %></p>
-	<p>Product Dimension Length: <%= @product.product_dimension_length %></p>
-	<p>Product Dimension Width: <%= @product.product_dimension_width %></p>
-	<p>Product Dimension Weight: <%= @product.product_dimension_weight %></p>
-	<p>Master Carton Height: <%= @product.master_carton_height %></p>
-	<p>Master Carton Length: <%= @product.master_carton_length %></p>
-	<p>Master Carton Width: <%= @product.master_carton_width %></p>
-	<p>Master Carton Weight: <%= @product.master_carton_weight %></p>
-	<p><%= image_tag @product.avatar.url(:medium) %></p>
+<div class="container">
+	<div class="row">
+		<div class="col-md-9">
+			<h1><%= @product.option_name %><br></h1>
+		</div>
+		<div class="col-md-3">	
+			<% @deal.products.each do |product| %>
+				<h1><%= link_to 'Edit Deal Option', edit_deal_product_path(@deal, product), :class => "btn btn-success btn-xs" %>
+				<%= link_to 'Delete Deal Option', [product.deal, product],:class => "btn btn-danger btn-xs",
+				method: :delete,
+				data: {confirm: 'Are you sure you want to delete this product?'} %></h1>
+			<%end%>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-6">
+			<h4>Basic Info</h4>
+				<p>Sell Number: <%= @product.sell_number %></p>
+				<p>Units Per Carton: <%= @product.units_per_carton %></p>
+				<p>Cartons Per Pallet: <%= @product.cartons_per_pallet %></p>
+				<p>Pallets Stackable: <%= @product.pallets_stackable %></p>
+				<p>Estimated Shipping Cost: <%= @product.est_shipping_cost %></p>
+				<p>Country Origin: <%= @product.country_origin %></p>
+			<h4>Expiration</h4>
+				<p>Expiration Type: <%= @product.expiration_type %></p>
+				<p>Months Until Expiration: <%= @product.months_to_expiration %></p>
+				<p>Days Until Expiration: <%= @product.days_to_expiration %></p>
+			<h4>Price/Costs</h4>
+				<p>Unit Value: <%= @product.unit_value %></p>
+				<p>Unit Buy Price: <% @product.unit_buy_price %></p>
+				<p>Unit Sell Price: <%= @product.unit_sell_price %></p>
+				<p>Option Comission: <%= @product.option_commission %></p>
+				<p>Buyer Max: <%= @product.buyer_max %></p>
+				<p>Option Cap: <%= @product.option_cap %></p>
+				<p>Display Order: <%= @product.display_order %></p>
+		</div>
+		<div class="col-md-6">
+			<%= image_tag @product.avatar.url(:medium) %>
+			<h4>Measurement</h4>
+				<p>Dimensions Unit of Measurement: <%= @product.dimensions_uom %></p>
+				<p>Weight Unit of Measurement: <%= @product.weight_uom %></p>
+				<p>Retail Package Height: <%= @product.retail_package_height %></p>
+				<p>Retail Package Length: <%= @product.retail_package_length %></p>
+				<p>Retail Package Width: <%= @product.retail_package_width %></p>
+				<p>Retail Package Weight: <%= @product.retail_package_weight %></p>
+				<p>Product Dimension Height: <%= @product.product_dimension_height %></p>
+				<p>Product Dimension Length: <%= @product.product_dimension_length %></p>
+				<p>Product Dimension Width: <%= @product.product_dimension_width %></p>
+				<p>Product Dimension Weight: <%= @product.product_dimension_weight %></p>
+				<p>Master Carton Height: <%= @product.master_carton_height %></p>
+				<p>Master Carton Length: <%= @product.master_carton_length %></p>
+				<p>Master Carton Width: <%= @product.master_carton_width %></p>
+				<p>Master Carton Weight: <%= @product.master_carton_weight %></p>
+				
+		</div>
+	</div>
 	
 	<br><br>
- 	
- 	<% @deal.products.each do |product| %>
-		<%= link_to 'Edit Deal Option', edit_deal_product_path(@deal, product), :class => "btn btn-default" %> |
-		<%= link_to 'Delete Deal Option', [product.deal, product],:class => "btn btn-default",
-			method: :delete,
-			data: {confirm: 'Are you sure you want to delete this product?'} 
-		%>
-	<%end%>
-
-	
-	<br>
-
 	<%= link_to 'Back', :back, :class => "btn btn-default" %>
 	<br><br>
-
+	
 </div>

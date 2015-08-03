@@ -1,5 +1,12 @@
 <div class="container">
-    <h1><%= @deal.name %> <%= link_to 'Add Deal Option', new_deal_product_path(@deal), :class => 'btn btn-default' %></h1>
+    <div class="row">
+        <div class="col-md-10">
+            <h1><%= @deal.name %></h1>
+        </div>
+        <div class="col-md-2">
+            <h1><%= link_to 'Send Approval Email', mailers_approval_path, :class => "btn btn-default" %></h1>
+        </div>
+    </div>
 
     
     
@@ -8,29 +15,29 @@
         <% if current_user.role == "admin" %> 
             <p><strong>Account Name:</strong> <%= @deal.account_name %></p>
             <p><strong>City Planner:</strong> <%= @deal.city_planner %></p>
-            <p>Payment Terms: <%= @deal.payment_terms %></p>
-            <p>Months to Expiration: <%= @deal.months_to_expiration %></p>
-            <p>Fine Print: <%= @deal.fine_print %></p>
-            <p>Fulfillment Method: <%= @deal.fulfill_method %></p>
-            <p>Freight Allowance: <%= @deal.freight_allowance %></p>
-            <p>Maximum Delivery Days: <%= @deal.max_delivery_days %></p>
-            <p>Courier: <%= @deal.courier %></p>
+            <p><strong>Payment Terms:</strong> <%= @deal.payment_terms %></p>
+            <p><strong>Months to Expiration:</strong> <%= @deal.months_to_expiration %></p>
+            <p><strong>Fine Print:</strong> <%= @deal.fine_print %></p>
+            <p><strong>Fulfillment Method:</strong> <%= @deal.fulfill_method %></p>
+            <p><strong>Freight Allowance:</strong> <%= @deal.freight_allowance %></p>
+            <p><strong>Maximum Delivery Days:</strong> <%= @deal.max_delivery_days %></p>
+            <p><strong>Courier:</strong> <%= @deal.courier %></p>
         </div>
         <div class="col-md-6">
-            <p>Division: Merchandizing (ZA) </p>
+            <p><strong>Division:</strong> Merchandizing (ZA) </p>
         <% end %> 
         
-            <p>Email Link To: <%= @deal.email_to %></p>
-            <p>Capacity Information: <%= @deal.capacity_info %></p>
-            <p>Highlights: <%= @deal.highlights %></p>
-            <p>Description: <%= @deal.description %></p>
+            <p><strong>Email Link To:</strong> <%= @deal.email_to %></p>
+            <p><strong>Capacity Information:</strong> <%= @deal.capacity_info %></p>
+            <p><strong>Highlights:</strong> <%= @deal.highlights %></p>
+            <p><strong>Description:</strong> <%= @deal.description %></p>
             
-            <p>Shipping SLA: <%= @deal.shipping_sla %></p>
-            <p>Brand: <%= @deal.brand %></p>
+            <p><strong>Shipping SLA:</strong> <%= @deal.shipping_sla %></p>
+            <p><strong>Brand:</strong> <%= @deal.brand %></p>
             <% if @deal.cloned %>
-                <p>Timestamp: <%= @deal.updated_at %></p>
+                <p><strong>Close Date Timestamp:</strong> <%= @deal.updated_at %></p>
             <% else %>
-                <p>Timestamp: <%= @deal.created_at %></p>
+                <p><strong>Close Date Timestamp:</strong> <%= @deal.created_at %></p>
             <% end %>
         </div>
     </div>
@@ -75,10 +82,13 @@
                <td><%= product.option_cap %></td>
                <td><%= product.sell_number %></td>
                <td>
-                   <%= link_to 'Edit', edit_deal_product_path(@deal, product) %> |
+                   <% if @deal.stage != "Approved" && @deal.stage != "Complete" %>
+                   <%= link_to 'Edit', edit_deal_product_path(@deal, product),  :class => "btn btn-success btn-xs" %> |
                    <%= link_to 'Delete', [@deal, product],
                                 method: :delete,
-                                data: { confirm: 'Are you sure you want to delete this deal option?' } %>
+                                data: { confirm: 'Are you sure you want to delete this deal option?' }, 
+                                :class => "btn btn-danger btn-xs" %>
+                    <% end %>
                </td>
                <% if !product.avatar_file_name.nil? %>
                    <td><%= image_tag product.avatar.url(:thumb) %></td>
@@ -89,11 +99,9 @@
     </table>
     </div>
     
-    <br>
-    
-    <%= link_to 'Send Approval Email', mailers_approval_path, :class => "btn btn-default" %>
-    
-    
+    <% if @deal.stage != "Approved" && @deal.stage != "Complete" %>
+    <%= link_to 'Add Deal Option', new_deal_product_path(@deal), :class => 'btn btn-primary btn-xs' %>
+    <% end %>
     <br>
     <br>
     

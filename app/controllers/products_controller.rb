@@ -5,7 +5,7 @@ class ProductsController < ApplicationController
     @deal = Deal.find params[:deal_id]
 		@product = @deal.products.create(product_params)
 		redirect_to deal_path(@deal)
-		flag_check(@deal, @productt)
+		flag_check(@deal, @product)
   end
 
   def new 

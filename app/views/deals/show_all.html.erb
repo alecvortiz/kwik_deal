@@ -22,7 +22,7 @@
         <%=link_to 'Approve', :action => :approve, :id => deal.id %>
         | <%=link_to 'Deny', :action => :deny, :id => deal.id %>
     <% elsif deal.stage == "Approved" %>
-        <%= link_to 'Complete Deal', edit_deal_path(deal) %>
+        <%= link_to 'Complete Deal', edit_deal_path(deal), :class => 'btn btn-primary btn-xs' %>
     <% end %>
      <p>
         

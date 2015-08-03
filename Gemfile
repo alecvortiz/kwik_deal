@@ -13,6 +13,7 @@ gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.1.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
+gem 'bootstrap-glyphicons'
 gem 'twitter-bootstrap-rails'
 gem 'devise'
 gem 'simple_form'
@@ -28,6 +29,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 gem "paperclip", "~> 4.3"
 
+gem 'puma'
 
 gem 'seed_dump'
 gem 'amoeba', :git => "git://github.com/amoeba-rb/amoeba.git", :ref => '6ebb1a26393ce66f668e3582e6a938aed3431e91'
