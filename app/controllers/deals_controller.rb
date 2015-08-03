@@ -3,7 +3,7 @@ class DealsController < ApplicationController
   def index
     @deals = current_user.deals
     if params[:q]
-  			@deals = current_user.deals.where("stage LIKE ? or name LIKE ?", "%#{params[:q].downcase}%", "%#{params[:q].downcase}%")
+  			@deals = current_user.deals.where("stage LIKE ? or name LIKE ?", "%#{params[:q]}%", "%#{params[:q]}%")
   		else
   		   @deals = current_user.deals
   		end  
@@ -24,7 +24,7 @@ class DealsController < ApplicationController
       redirect_to deals_path, notice: "You need to be an admin to view that page." unless current_user && current_user.admin?
       @deals = Deal.all
   		if params[:q]
-  			@deals = Deal.where("stage LIKE ? or name LIKE ?", "%#{params[:q].downcase}%", "%#{params[:q].downcase}%")
+  			@deals = Deal.where("stage LIKE ? or name LIKE ?", "%#{params[:q]}%", "%#{params[:q]}%")
   		else
   		   @deals = Deal.all
   		end  
