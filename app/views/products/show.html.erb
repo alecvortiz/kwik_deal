@@ -1,0 +1,34 @@
+
+	<strong>Product:</strong>
+	<%= @product.option_name %><br>
+	<p>Expiration Type: <%= @product.expiration_type %></p>
+	<p>Months Until Expiration: <%= @product.months_to_expiration %></p>
+	<p>Days Until Expiration: <%= @product.days_to_expiration %></p>
+	<p>Unit Value: <%= @product.unit_value %></p>
+	<p>Unit Sell Price: <%= @product.unit_sell_price %></p>
+	<p>Option Comission: <%= @product.option_commission %></p>
+	<p>Buyer Max: <%= @product.buyer_max %></p>
+	<p>Option Cap: <%= @product.option_cap %></p>
+	<p>Display Order: <%= @product.display_order %></p>
+	<p>Sell Number: <%= @product.sell_number %></p>
+	<p>Units Per Carton: <%= @product.units_per_carton %></p>
+	<p>Cartons Per Pallet: <%= @product.cartons_per_pallet %></p>
+	<p>Pallets Stackable: <%= @product.pallets_stackable %></p>
+	<p>Estimated Shipping Cost: <%= @product.est_shipping_cost %></p>
+	<p>Country Origin: <%= @product.country_origin %></p>
+	<p>Dimensions Unit of Measurement: <%= @product.dimensions_uom %></p>
+	<p>Weight Unit of Measurement: <%= @product.weight_uom %></p>
+	<p>Retail Package Height: <%= @product.retail_package_height %></p>
+	<p>Retail Package Length: <%= @product.retail_package_length %></p>
+	<p>Retail Package Width: <%= @product.retail_package_width %></p>
+	<p>Retail Package Weight: <%= @product.retail_package_weight %></p>
+	<p>Product Dimension Height: <%= @product.product_dimension_height %></p>
+	<p>Product Dimension Length: <%= @product.product_dimension_length %></p>
+	<p>Product Dimension Width: <%= @product.product_dimension_width %></p>
+	<p>Product Dimension Weight: <%= @product.product_dimension_weight %></p>
+	<p>Master Carton Height: <%= @product.master_carton_height %></p>
+	<p>Master Carton Length: <%= @product.master_carton_length %></p>
+	<p>Master Carton Width: <%= @product.master_carton_width %></p>
+	<p>Master Carton Weight: <%= @product.master_carton_weight %></p>
+	<p><%= image_tag @product.avatar.url(:medium) %></p>
+	

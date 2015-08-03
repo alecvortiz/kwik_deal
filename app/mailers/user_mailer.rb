@@ -3,7 +3,7 @@ class UserMailer < ApplicationMailer
 
     def approval
         mail(to: 'jwalkk@umich.edu',
-		    subject: 'New Deal up for Approval',
+		    subject: 'New Opportunity up for Approval',
 		    template_path: 'user_mailer',
 		    template_name: 'approval')
 	   

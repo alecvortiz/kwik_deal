@@ -1,41 +1,91 @@
 <div class="container">
-    <h1><%= @deal.name %> | <%= link_to 'Add Product', new_deal_product_path(@deal)%></h1> 
-    
-    
-    <% if current_user.role == "admin" %> 
-        <p>Account Name: <%= @deal.account_name %></p>
-        <p>City Planner: <%= @deal.city_planner %></p>
-        <p>Payment Terms: <%= @deal.payment_terms %></p>
-        <p>Months to Expiration: <%= @deal.months_to_expiration %></p>
-        <p>Fine Print: <%= @deal.fine_print %></p>
-        <p>Fulfillment Method: <%= @deal.fulfill_method %></p>
-        <p>Freight Allowance: <%= @deal.freight_allowance %></p>
-        <p>Maximum Delivery Days: <%= @deal.max_delivery_days %></p>
-        <p>Courier: <%= @deal.courier %></p>
-        <p>Division: Merchandizing (ZA) </p>
-    <% end %> 
+    <h1><%= @deal.name %> <%= link_to 'Add Deal Option', new_deal_product_path(@deal), :class => 'btn btn-default' %></h1>
 
-    <p>Email Link To: <%= @deal.email_to %></p>
-    <p>Capacity Information: <%= @deal.capacity_info %></p>
-    <p>Highlights: <%= @deal.highlights %></p>
-    <p>Description: <%= @deal.description %></p>
     
-    <p>Shipping SLA: <%= @deal.shipping_sla %></p>
-    <p>Brand: <%= @deal.brand %></p>
-    <% if @deal.cloned %>
-        <p>Timestamp: <%= @deal.updated_at %></p>
-    <% else %>
-        <p>Timestamp: <%= @deal.created_at %></p>
-    <% end %>
-  
     
-    <%= render @deal.products %>
+   <div class="row">
+       <div class="col-md-6">
+        <% if current_user.role == "admin" %> 
+            <p>Account Name: <%= @deal.account_name %></p>
+            <p>City Planner: <%= @deal.city_planner %></p>
+            <p>Payment Terms: <%= @deal.payment_terms %></p>
+            <p>Months to Expiration: <%= @deal.months_to_expiration %></p>
+            <p>Fine Print: <%= @deal.fine_print %></p>
+            <p>Fulfillment Method: <%= @deal.fulfill_method %></p>
+            <p>Freight Allowance: <%= @deal.freight_allowance %></p>
+            <p>Maximum Delivery Days: <%= @deal.max_delivery_days %></p>
+            <p>Courier: <%= @deal.courier %></p>
+        </div>
+        <div class="col-md-6">
+            <p>Division: Merchandizing (ZA) </p>
+        <% end %> 
+        
+            <p>Email Link To: <%= @deal.email_to %></p>
+            <p>Capacity Information: <%= @deal.capacity_info %></p>
+            <p>Highlights: <%= @deal.highlights %></p>
+            <p>Description: <%= @deal.description %></p>
+            
+            <p>Shipping SLA: <%= @deal.shipping_sla %></p>
+            <p>Brand: <%= @deal.brand %></p>
+            <% if @deal.cloned %>
+                <p>Timestamp: <%= @deal.updated_at %></p>
+            <% else %>
+                <p>Timestamp: <%= @deal.created_at %></p>
+            <% end %>
+        </div>
+
+    </div>
+
+    <br><br>
     
+    <div class="table-responsive">
+    <table class="table table-hover table-condensed">
+        <caption>List of Deal Options:</caption>
+        <thead>
+            <tr>
+                <th>Image</th>
+                <th>Option Name</th>
+                <th>Display Order</th>
+                <th>Unit Buy Price</th>
+                <th>Unit Sell Price</th>
+                <th>Unit Value</th>
+                <th>Discount %</th>
+                <th>Option Commission</th>
+                <th>Goods Margin %</th>
+                <th>Option Cap</th>
+                <th>Sell Number</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% @deal.products.each do |product| %>
+            <tr>
+               <% if !product.avatar_file_name.nil? %>
+                   <td><%= image_tag product.avatar.url(:thumb) %></td>
+               <% end %>
+               <td><%= link_to product.option_name, deal_product_path(@deal, product) %></td>
+               <td><%= product.display_order %></td>
+               <td><%= product.unit_buy_price %></td>
+               <td><%= product.unit_sell_price%></td>
+               <td><%= product.unit_value %></td>
+               <td>Find equation </td>
+               <td><%= product.option_commission %></td>
+               <td>Find equation</td>
+               <td><%= product.option_cap %></td>
+               <td><%= product.sell_number %></td>
+            </tr>
+            <% end %>
+        </tbody>
+    </table>
+    </div>
+    
+    <br>
     
     <%= link_to 'Send Approval Email', mailers_approval_path, :class => "btn btn-default" %>
     
     
     <br>
     <br>
-
+    
 </div>
+
+

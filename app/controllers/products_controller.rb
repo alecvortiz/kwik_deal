@@ -18,6 +18,11 @@ class ProductsController < ApplicationController
     @product = @deal.products.find params[:id]
   end
   
+  def show
+    @deal = Deal.find params[:deal_id]
+    @product = @deal.products.find params[:id]
+  end
+  
   def update 
     @deal = Deal.find params[:deal_id]
     @product = @deal.products.find params[:id]
