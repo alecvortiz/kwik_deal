@@ -18,7 +18,7 @@
     <% end %>
     <p>Stage: <%= deal.stage %></p>
 
-    <% if deal.stage != "Complete" || deal.stage != "Approved" %>
+    <% if deal.stage != "Complete" && deal.stage != "Approved" %>
         <%=link_to 'Approve', :action => :approve, :id => deal.id %>
         | <%=link_to 'Deny', :action => :deny, :id => deal.id %>
     <% elsif deal.stage == "Approved" %>
