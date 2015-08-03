@@ -135,15 +135,24 @@
                         </div>
                     </div>
                 </div>
-                <% if current_user == 'admin' %>
+                     <% if current_user.role == 'employee' %>
                 <div class = "modal_body">
+                    <div class="row">
+                        <div class="col-med-offset-3 col-md-6">
+                             <p><%= f.input :unit_buy_price, :label => "Unit Sell Price", :placeholder  => "(e.g. 3,250.00)", :label_html => { :class => 'text-right' }, :input_html=> { :class => "form-control" } %></p>
+                        </div>
+                    </div>
+                </div>
+                <% else %>
+                  <div class = "modal_body">
                     <div class="row">
                         <div class="col-med-offset-3 col-md-6">
                              <p><%= f.input :unit_buy_price, :label => "Unit Buy Price", :placeholder  => "(e.g. 3,250.00)", :label_html => { :class => 'text-right' }, :input_html=> { :class => "form-control" } %></p>
                         </div>
                     </div>
                 </div>
-                <% else %>
+                <% end %>
+                <% if current_user.role == "admin" %>
                 <div class = "modal_body">
                     <div class="row">
                         <div class="col-med-offset-3 col-md-6">                    
@@ -184,6 +193,13 @@
                     <div class="row">
                         <div class="col-med-offset-3 col-md-6">                    
                              <p><%= f.input :display_order,  :placeholder  => "(e.g. 1)", :label_html => { :class => 'text-right' }, :input_html=> { :class => "form-control" } %></p>
+                        </div>
+                    </div>
+                </div>
+                 <div class = "modal_body">
+                    <div class="row">
+                        <div class="col-med-offset-3 col-md-6">                    
+                             <p><%= f.input :sell_number,  :placeholder  => "Sell SKU/UPC/EAN Number", :label_html => { :class => 'text-right' }, :input_html=> { :class => "form-control" } %></p>
                         </div>
                     </div>
                 </div>

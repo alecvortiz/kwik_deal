@@ -6,8 +6,8 @@
    <div class="row">
        <div class="col-md-6">
         <% if current_user.role == "admin" %> 
-            <p>Account Name: <%= @deal.account_name %></p>
-            <p>City Planner: <%= @deal.city_planner %></p>
+            <p><strong>Account Name:</strong> <%= @deal.account_name %></p>
+            <p><strong>City Planner:</strong> <%= @deal.city_planner %></p>
             <p>Payment Terms: <%= @deal.payment_terms %></p>
             <p>Months to Expiration: <%= @deal.months_to_expiration %></p>
             <p>Fine Print: <%= @deal.fine_print %></p>
@@ -45,8 +45,14 @@
             <tr>
                 <th>Option Name</th>
                 <th>Display Order</th>
-                <th>Unit Buy Price</th>
-                <th>Unit Sell Price</th>
+                <% if current_user.role == "admin" %>
+                    <th>Unit Buy Price</th>
+                <% else %>
+                    <th>Unit Sell Price</th>
+                <% end %>
+                <% if current_user.role == "admin" %>
+                    <th>Unit Sell Price</th>
+                <% end %>
                 <th>Unit Value</th>
                 <th>Option Commission</th>
                 <th>Option Cap</th>
@@ -61,7 +67,9 @@
                <td><%= link_to product.option_name, deal_product_path(@deal, product) %></td>
                <td><%= product.display_order %></td>
                <td><%= product.unit_buy_price %></td>
-               <td><%= product.unit_sell_price%></td>
+               <% if current_user == "admin" %>
+                   <td><%= product.unit_sell_price%></td>
+               <% end %>
                <td><%= product.unit_value %></td>
                <td><%= product.option_commission %></td>
                <td><%= product.option_cap %></td>
