@@ -16,12 +16,12 @@
         </p>
     
     <div class="row">
-     <div class="col-md-1" style="margin-right:30pt">
+     <div class="col-md-1" style="margin-right:20pt">
         <% if !deal.products[0].nil? %>
           	 <%= image_tag deal.products[0].avatar.url(:thumb) %>
         <% end %>
      </div>
-     <div class="col-md-9">
+     <div class="col-md-6">
         <%= link_to deal.name, deal_path(deal) %>
         <% if deal.flag %>
             Sell price has been modified 

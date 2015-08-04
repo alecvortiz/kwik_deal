@@ -22,14 +22,14 @@
     </p>
    
    <div class="row">
-     <div class="col-md-1">
+     <div class="col-md-1" style="margin-right:20pt">
        <% if !deal.products[0].nil? %>
      	  <%= image_tag deal.products[0].avatar.url(:thumb) %>
      	 <% end %>
-     	</div>
+     </div>
      	
 
-    	<div class="col-md-11">
+    	<div class="col-md-6">
     	 <%= link_to deal.name, deal_path(deal) %> 
       <% if deal.cloned %> (c) <% end %>
      	<div class=".col-sm-4">	
