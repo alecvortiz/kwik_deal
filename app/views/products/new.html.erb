@@ -1,5 +1,10 @@
 <div class="container">
     <h1> Add Deal Option </h1>
-
-    <%= render 'tab_form' %>
+    
+    <% if current_user.role == "admin" %>
+        <%= render 'tab_form' %>
+    <% else %>
+        <%= render 'tab_merchant' %>
+    <% end %>
+    
 </div>

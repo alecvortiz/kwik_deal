@@ -4,7 +4,7 @@
        
     <p> 
         <%= form_tag users_path, method: :get do |f| %>
-        <%= text_field_tag :q, params[:q] %>
+        <%= text_field_tag :q, params[:q], :size => 35, :placeholder => 'Search by ID, email, or account name ' %>
         <%= submit_tag "Search" %>
         <% end %> 
     </p>

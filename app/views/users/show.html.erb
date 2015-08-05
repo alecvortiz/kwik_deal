@@ -16,8 +16,8 @@
         <h1>Opportunities</h1>
                       
         <% user.deals.each do |deal| %>
-        <p><%= link_to deal.name, deal_path(deal) %> | 
-        <%= link_to 'Complete Deal', edit_deal_path(deal) %></p>
+        <p><%= link_to deal.name, deal_path(deal) %>  
+        <%= link_to 'Complete/Edit Deal', edit_deal_path(deal), :class => "btn btn-primary btn-xs" %></p>
         <% end %>
     
     

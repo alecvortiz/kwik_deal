@@ -4,7 +4,9 @@
             <h1><%= @deal.name %></h1>
         </div>
         <div class="col-md-2">
+            <% if @deal.stage != "Approved" && @deal.stage != "Complete" %>
             <h1><%= link_to 'Send Approval Email', mailers_approval_path, :class => "btn btn-default" %></h1>
+            <% end %>
         </div>
     </div>
 
@@ -22,6 +24,8 @@
             <p><strong>Freight Allowance:</strong> <%= @deal.freight_allowance %></p>
             <p><strong>Maximum Delivery Days:</strong> <%= @deal.max_delivery_days %></p>
             <p><strong>Courier:</strong> <%= @deal.courier %></p>
+            <p><strong>Shipping SLA:</strong> <%= @deal.shipping_sla %></p>
+            <p><strong>Brand:</strong> <%= @deal.brand %></p>
         </div>
         <div class="col-md-6">
             <p><strong>Division:</strong> Merchandizing (ZA) </p>
@@ -32,8 +36,7 @@
             <p><strong>Highlights:</strong> <%= @deal.highlights %></p>
             <p><strong>Description:</strong> <%= @deal.description %></p>
             
-            <p><strong>Shipping SLA:</strong> <%= @deal.shipping_sla %></p>
-            <p><strong>Brand:</strong> <%= @deal.brand %></p>
+            
             <% if @deal.cloned %>
                 <p><strong>Close Date Timestamp:</strong> <%= @deal.updated_at %></p>
             <% else %>

@@ -2,6 +2,10 @@
     
     <h1> Edit Deal Option </h1>
 
-    <%= render 'tab_edit' %>
-
+    <% if current_user.role == "admin" %>
+        <%= render 'tab_edit' %>
+    <% else %>
+        <%= render 'tab_edit_merchant' %>
+    <% end %>
+    
 </div>

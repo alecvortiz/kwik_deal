@@ -4,8 +4,8 @@
 
 <p>
     <%= form_tag show_all_path, method: :get do |f| %>
-    <%= text_field_tag :q, params[:q] %>
-    <%= submit_tag "Filter" %>
+        <%= text_field_tag :q, params[:q], :size => 23, :placeholder => 'Search by name or stage' %>
+        <%= submit_tag "Filter" %>
     <% end %> 
 </p>
 
@@ -32,13 +32,15 @@
      	     <p><strong>Account Name:</strong> <%= deal.account_name %></p>
      	     <p><strong>Stage:</strong>
      	     <%= deal.stage %></p>
+     	     <p><strong>Created: </strong>
+     	     <%= deal.created_at %></p>
          </div>
 
         <% if deal.stage != "Complete" && deal.stage != "Approved" %>
             <%=link_to 'Approve', :action => :approve, :id => deal.id %>
             | <%=link_to 'Deny', :action => :deny, :id => deal.id %>
         <% elsif deal.stage == "Approved" %>
-            <%= link_to 'Complete Deal', edit_deal_path(deal), :class => 'btn btn-primary btn-xs' %>
+            <%= link_to 'Complete/Edit Deal', edit_deal_path(deal), :class => 'btn btn-primary btn-xs' %>
         <% end %>
     </div>
      <p>

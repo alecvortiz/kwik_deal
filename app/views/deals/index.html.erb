@@ -4,8 +4,8 @@
  
  <p>
     <%= form_tag deals_path, method: :get do |f| %>
-    <%= text_field_tag :q, params[:q] %>
-    <%= submit_tag "Filter" %>
+     <%= text_field_tag :q, params[:q], :size => 23, :placeholder => 'Search by name or stage' %>
+     <%= submit_tag "Filter" %>
     <% end %> 
 </p>
  
@@ -37,6 +37,8 @@
         	 <p><%= deal.description %></p>
         	 <p><strong>Stage:</strong>
         	 <%= deal.stage %></p>
+        	 <p><strong>Created:</strong>
+        	 <%= deal.created_at %></p>
          </div>
      	
      	<div class=".col-sm-2">	
