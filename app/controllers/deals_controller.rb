@@ -66,7 +66,7 @@ class DealsController < ApplicationController
       @deal = Deal.find(params[:id])
   		if @deal.update(deals_params)
   		    if current_user.role == "admin"
-  		      redirect_to show_all
+  		      redirect_to show_all_path
   		    else 
    	    	  redirect_to deals_path
    	    	end
