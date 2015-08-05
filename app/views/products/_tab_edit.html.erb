@@ -64,7 +64,7 @@
                           <div class="row">
                             <div class="col-med-offset-3 col-md-6">
                              <p>
-                                <%= f.input :country_origin, :priority => ["South Africa"] %>
+                                <%= f.input :country_origin, :priority => ["China"] %>
                              </p>
                             </div>
                           </div>
@@ -92,7 +92,7 @@
                         <div class = "modal_body">
                           <div class="row">
                             <div class="col-med-offset-3 col-md-6">
-                             <p><%= f.input :pallets_stackable %></p>
+                             <p><%= f.input :pallets_stackable, :input_html => { :checked => true } %></p>
                             </div>
                           </div>
                         </div>
@@ -103,7 +103,7 @@
                         <div class = "modal_body">
                           <div class="row">
                             <div class="col-med-offset-3 col-md-6">
-                             <p><%= f.input :expiration_type, :placeholder  => "(e.g. Relative to Feature)", :label_html => { :class => 'text-right' }, :input_html=> { :class => "form-control" } %></p>
+                             <p><%= f.input :expiration_type, :label_html => { :class => 'text-right' }, :input_html=> { :class => "form-control", :value => 'Relative to Feature' } %></p>
                             </div>
                           </div>
                         </div>
@@ -112,7 +112,7 @@
                         <div class = "modal_body">
                           <div class="row">
                             <div class="col-med-offset-3 col-md-6">
-                             <p><%= f.input :months_to_expiration,  :placeholder  => "(e.g. 6)", :label_html => { :class => 'text-right' }, :input_html=> { :class => "form-control" } %></p>
+                             <p><%= f.input :months_to_expiration, :label_html => { :class => 'text-right' }, :input_html=> { :class => "form-control", :value  => '6' } %></p>
                             </div>
                           </div>
                         </div>
@@ -121,12 +121,12 @@
                         <div class = "modal_body">
                           <div class="row">
                             <div class="col-med-offset-3 col-md-6">
-                             <p><%= f.input :days_to_expiration,  :placeholder  => "(e.g. 180)", :label_html => { :class => 'text-right' }, :input_html=> { :class => "form-control" } %></p>
+                             <p><%= f.input :days_to_expiration, :label_html => { :class => 'text-right' }, :input_html=> { :class => "form-control", :value => '180' } %></p>
                             </div>
                           </div>
                         </div>
                     </div>
-                </div> 
+                </div>  
             <div class="tab-pane" id="3">
                 <div class = "modal_body">
                     <div class="row">
@@ -192,7 +192,7 @@
                  <div class = "modal_body">
                     <div class="row">
                         <div class="col-med-offset-3 col-md-6">                    
-                             <p><%= f.input :display_order,  :placeholder  => "(e.g. 1)", :label_html => { :class => 'text-right' }, :input_html=> { :class => "form-control" } %></p>
+                             <p><%= f.input :display_order, :label_html => { :class => 'text-right' }, :input_html=> { :class => "form-control", :value => '1' } %></p>
                         </div>
                     </div>
                 </div>
@@ -201,14 +201,14 @@
                 <div class = "modal_body">
                     <div class="row">
                         <div class="col-med-offset-3 col-md-6">
-                            <p><%= f.input :weight_uom, :label => "Weight Unit of Measurement",  :placeholder  => "(e.g. kg)", :label_html => { :class => 'text-right' }, :input_html=> { :class => "form-control" } %></p>
+                            <p><%= f.input :weight_uom, :label => "Weight Unit of Measurement", :label_html => { :class => 'text-right' }, :input_html=> { :class => "form-control", :value  => "kg" } %></p>
                         </div>
                     </div>
                 </div>
                 <div class = "modal_body">
                     <div class="row">
                         <div class="col-med-offset-3 col-md-6">
-                            <p><%= f.input :dimensions_uom, :label => "Dimensions Unit of Measurement",  :placeholder  => "(e.g. cm)", :label_html => { :class => 'text-right' }, :input_html=> { :class => "form-control" } %></p>
+                            <p><%= f.input :dimensions_uom, :label => "Dimensions Unit of Measurement", :label_html => { :class => 'text-right' }, :input_html=> { :class => "form-control", :value  => "cm" } %></p>
                         </div>
                     </div>
                 </div>

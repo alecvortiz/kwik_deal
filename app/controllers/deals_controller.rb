@@ -63,7 +63,7 @@ class DealsController < ApplicationController
   end
   
   def update 
-      @deal = current_user.deals.find(params[:id])
+      @deal = Deal.find(params[:id])
   		if @deal.update(deals_params)
    	    	redirect_to deals_path
    	  else 

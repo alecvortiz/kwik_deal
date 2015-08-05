@@ -6,4 +6,8 @@ class MailersController < ApplicationController
     def approval
       
     end
+    
+    def send_approved
+        
+    end
 end

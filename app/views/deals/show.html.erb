@@ -72,7 +72,7 @@
             </tr>
         </thead>
         <tbody>
-            <% @deal.products.each do |product| %>
+            <% @deal.products.order(:display_order).each do |product| %>
             <tr>
                <td><%= link_to product.option_name, deal_product_path(@deal, product) %></td>
                <td><%= product.display_order %></td>

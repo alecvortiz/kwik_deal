@@ -15,12 +15,17 @@
     <p><%= f.input :option_name, :label  => "Option Name", :label_html => { :class => 'text-right' }, :input_html=> { :class => "form-control" } %></p>
     <p><%= f.input :sell_number, :label => "Sell SKU/UPC/EAN Number", :label_html => { :class => 'text-right' }, :input_html=> { :class => "form-control" } %></p>
     <%= f.input :avatar, as: :file, :label => "Add Image" %>
+    <p><%= f.input :country_origin, :priority => ["China"] %></p>
     <p><%= f.input :retail_package_height, :label  => "Retail Package Height", :label_html => { :class => 'text-right' }, :input_html=> { :class => "form-control" } %></p>
     <p><%= f.input :retail_package_length, :label  => "Retail Package Length", :label_html => { :class => 'text-right' }, :input_html=> { :class => "form-control" } %></p>
     <p><%= f.input :retail_package_width, :label  => "Retail Package Width", :label_html => { :class => 'text-right' }, :input_html=> { :class => "form-control" } %></p>
     <p><%= f.input :retail_package_weight,  :label  => "Retail Package Weight", :label_html => { :class => 'text-right' }, :input_html=> { :class => "form-control" } %></p>
+    <p><%= f.input :product_dimension_height, :label  => "Product Dimension Height", :label_html => { :class => 'text-right' }, :input_html=> { :class => "form-control" } %></p>
+    <p><%= f.input :product_dimension_length, :label  => "Product Dimension Length", :label_html => { :class => 'text-right' }, :input_html=> { :class => "form-control" } %></p>
+    <p><%= f.input :product_dimension_width, :label  => "Product Dimension Width", :label_html => { :class => 'text-right' }, :input_html=> { :class => "form-control" } %></p>
+    <p><%= f.input :product_dimension_weight,  :label  => "Product Dimension Weight", :label_html => { :class => 'text-right' }, :input_html=> { :class => "form-control" } %></p>
     <p><%= f.input :unit_value,  :placeholder  => "(e.g. 5,500.00)", :label_html => { :class => 'text-right' }, :input_html=> { :class => "form-control" } %></p>
     <p><%= f.input :unit_sell_price, :label => "Unit Sell Price", :placeholder  => "(e.g. 3,299.00)", :label_html => { :class => 'text-right' }, :input_html=> { :class => "form-control" } %></p>
     <p><%= f.input :option_cap, :label => "Option Cap", :placeholder  => "(e.g. 30)", :label_html => { :class => 'text-right' }, :input_html=> { :class => "form-control" } %></p>
-    <p><%= f.submit 'Update Deal Option', :class => "btn btn-success" %></p>
+    <p><%= f.submit 'Create Deal Option', :class => "btn btn-success" %></p>
 <% end %>
