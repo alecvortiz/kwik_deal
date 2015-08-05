@@ -40,11 +40,10 @@
         <% if deal.stage != "Complete" && deal.stage != "Approved" %>
             <%=link_to 'Approve', :action => :approve, :id => deal.id %>
             | <%=link_to 'Deny', :action => :deny, :id => deal.id %>
-        <% elsif deal.stage == "Approved" %>
+        <% elsif deal.stage == "Approved" || deal.stage == "Complete" %>
             <%= link_to 'Complete/Edit Deal', edit_deal_path(deal), :class => 'btn btn-primary btn-xs' %>
-        <% elsif deal.stage == "Complete" %>
-        <% user = deal.user %>
-     	     <%= link_to 'Send Merchant Email', send_approved_path(user), :class => "btn btn-default btn-xs" %>
+                    <% user = deal.user %>
+            <%= link_to 'Send Merchant Email', send_approved_path(user), :class => "btn btn-default btn-xs" %>
         <% end %>
     </div>
      <p>

@@ -9,8 +9,6 @@ Rails.application.routes.draw do
   
   get '/clone/:id' => 'deals#clone', as: :clone
   
-  # get 'mailers/approval' => "mailers#approval"
-  
   get '/mailers/send_approved/:id' => 'mailers#send_approved', as: :send_approved
   
   get 'mailers/send_approved' => 'mailers#send_approved'
