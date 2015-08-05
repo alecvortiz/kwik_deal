@@ -9,8 +9,9 @@ class UserMailer < ApplicationMailer
 	   
     end
     
-    def send_approved
-        mail(to: 'aortiz2@stanford.edu',
+    def send_approved(user)
+        email = user.email
+        mail(to: email,
 		    subject: 'Opportunity Approved',
 		    template_path: 'user_mailer',
 		    template_name: 'send_approved')

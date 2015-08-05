@@ -1,4 +1,5 @@
-<% UserMailer.send_approved.deliver_now %>
+
+<% UserMailer.send_approved(@user).deliver_now %>
 <div class="container">
     <h1>Email Sent</h1>
 </div>

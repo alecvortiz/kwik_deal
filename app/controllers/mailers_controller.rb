@@ -8,6 +8,6 @@ class MailersController < ApplicationController
     end
     
     def send_approved
-        
+        @user = User.find params[:id] 
     end
 end

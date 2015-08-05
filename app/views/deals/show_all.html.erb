@@ -43,7 +43,8 @@
         <% elsif deal.stage == "Approved" %>
             <%= link_to 'Complete/Edit Deal', edit_deal_path(deal), :class => 'btn btn-primary btn-xs' %>
         <% elsif deal.stage == "Complete" %>
-     	     <%= link_to 'Send Approval Email', mailers_send_approved_path, :class => "btn btn-default btn-xs" %>
+        <% user = deal.user %>
+     	     <%= link_to 'Send Merchant Email', send_approved_path(user), :class => "btn btn-default btn-xs" %>
         <% end %>
     </div>
      <p>
