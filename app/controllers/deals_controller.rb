@@ -2,7 +2,7 @@ class DealsController < ApplicationController
 
   def index
     @deals = current_user.deals
-    @deals = current_user.deals.select { |deal| deal.stage == "Complete" }
+    @dealz = current_user.deals.select { |deal| deal.stage == "Complete" }
     respond_to do |format|
       format.html
       format.csv { send_data @deals.to_csv }
