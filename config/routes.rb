@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   
   get '/mailers/send_approved/:id' => 'mailers#send_approved', as: :send_approved
   
-  get 'mailers/send_approved' => 'mailers#send_approved'
+  get 'mailers/approval' => 'mailers#approval'
 
   get '/personal/:id' => 'deals#personal', as: :deals_personal
 

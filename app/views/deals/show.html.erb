@@ -103,7 +103,7 @@
     </div>
     
     <% if @deal.stage != "Approved" && @deal.stage != "Complete" %>
-    <%= link_to 'Add Deal Option', new_deal_product_path(@deal), :class => 'btn btn-primary btn-xs' %>
+        <%= link_to 'Add Deal Option', new_deal_product_path(@deal), :class => 'btn btn-primary btn-xs' %>
     <% end %>
     <br>
     <br>
