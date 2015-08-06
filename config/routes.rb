@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   
     root 'deals#index'
     
+  get 'all' => 'products#all'
     
   get 'show_all' => 'deals#show_all'
   
@@ -25,6 +26,7 @@ Rails.application.routes.draw do
   end
   
   resources :deals do
+    resources :comments
     resources :products
   end
   # The priority is based upon order of creation: first created -> highest priority.

@@ -1,14 +1,26 @@
 <div class="container">
- 
-<h1>All Opportunities</h1>
-
-<p>
-    <%= form_tag show_all_path, method: :get do |f| %>
-        <%= text_field_tag :q, params[:q], :size => 23, :placeholder => 'Search by name or stage' %>
-        <%= submit_tag "Filter" %>
-    <% end %> 
-</p>
-
+    <div class="row">
+        <div class="col-md-7">
+            <h1>All Opportunities</h1>
+            <p>
+                <%= form_tag show_all_path, method: :get do |f| %>
+                    <%= text_field_tag :q, params[:q], :size => 23, :placeholder => 'Search by name or stage' %>
+                    <%= submit_tag "Filter" %>
+                <% end %> 
+            </p>
+        </div>
+        <div class="col-md-5">
+            <p class="downloads">
+                Download Opportunities:
+                <%= link_to "CSV", deals_path(format: "csv") %> |
+                <%= link_to "Excel", deals_path(format: "xls") %>
+            
+                Download Deal Options:
+                <%= link_to "CSV", all_path(format: "csv") %> |
+                <%= link_to "Excel", all_path(format: "xls") %>
+            </p>
+        </div>
+    </div>
 <% @deals.order(:created_at).reverse.each do |deal| %>
    <div class="foxyboxy">
         <p>
@@ -35,7 +47,7 @@
      	     <p><strong>Created: </strong>
      	     <%= deal.created_at %></p>
      	    
-         </div>
+        </div>
 
         <% if deal.stage != "Complete" && deal.stage != "Approved" %>
             <%=link_to 'Approve', :action => :approve, :id => deal.id %>
@@ -45,6 +57,9 @@
                     <% user = deal.user %>
             <%= link_to 'Send Merchant Email', send_approved_path(user), :class => "btn btn-default btn-xs" %>
         <% end %>
+        
+</div>
+
     </div>
      <p>
         

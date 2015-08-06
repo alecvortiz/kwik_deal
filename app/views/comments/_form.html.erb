@@ -1,0 +1,12 @@
+<%= simple_form_for([@deal, @new_comment]) do |f| %>
+	<p>
+		<%= f.input :body, :label => false,  :label_html => { :class => 'text-right' }, :input_html=> { :class => "form-control" } %><br>
+	</p>
+	<p>
+		<% if !@new_comment.body.nil? %>
+			<%= f.submit 'Update Comment', :class => "btn btn-success btn-xs"  %>
+		<% else %>
+			<%= f.submit 'Create Comment', :class => "btn btn-success btn-xs"  %>
+		<% end %>
+	</p>
+<% end %>

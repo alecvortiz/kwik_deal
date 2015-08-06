@@ -2,6 +2,12 @@ class DealsController < ApplicationController
 
   def index
     @deals = current_user.deals
+    @dealz = current_user.deals.select { |deal| deal.stage == "Complete" }
+    respond_to do |format|
+      format.html
+      format.csv { send_data @dealz.to_csv }
+      format.xls 
+    end
     if params[:q]
   			@deals = current_user.deals.where("LOWER(stage) LIKE ? or LOWER(name) LIKE ?", "%#{params[:q].downcase}%", "%#{params[:q].downcase}%")
   		else
@@ -12,6 +18,7 @@ class DealsController < ApplicationController
   def show
     @deal = Deal.find(params[:id])
     @new_product = Product.new(:deal => @product)
+    @new_comment = Comment.new(:deal => @deal)
   end
   
   def personal
@@ -40,6 +47,7 @@ class DealsController < ApplicationController
     @deal = current_user.deals.create(deals_params)
     @deal.stage = "Prospecting"
     @deal.flag = false
+    @deal.opportunity_name = @deal.name + ' - ' + @deal.id.to_s
     if @deal.save 
       redirect_to deals_path, notice: "Deal succesfully created."
     else      
@@ -54,6 +62,7 @@ class DealsController < ApplicationController
     @deal.stage = "Prospecting"
     @deal.flag = false
     @deal.cloned = true
+    @deal.opportunity_name = @deal.name + ' - ' + @deal.id.to_s
     @deal.save
     render 'clone'
   end
@@ -65,6 +74,7 @@ class DealsController < ApplicationController
   def update 
       @deal = Deal.find(params[:id])
   		if @deal.update(deals_params)
+      @deal.opportunity_name = @deal.name + ' - ' + @deal.id.to_s
   		    if current_user.role == "admin"
   		      redirect_to show_all_path
   		    else 
@@ -94,11 +104,11 @@ class DealsController < ApplicationController
     deal = Deal.find(params[:id])
     deal.stage = "Denied"
     deal.save
-      render 'show_all'
+    redirect_to deal_path(deal)
   end
 
   private
     def deals_params
-      params.require(:deal).permit(:city_planner, :account_name, :close_date, :feature_country, :name, :payment_terms, :months_to_expiration, :capacity_info, :fine_print, :highlights, :description, :fulfill_method, :freight_allowance, :max_delivery_days, :email_to, :courier, :shipping_sla, :brand, :stage)
+      params.require(:deal).permit(:city_planner, :account_name, :close_date, :feature_country, :name, :payment_terms, :months_to_expiration, :capacity_info, :fine_print, :highlights, :description, :fulfill_method, :freight_allowance, :max_delivery_days, :email_to, :courier, :shipping_sla, :brand, :stage, :opportunity_name)
     end 
 end

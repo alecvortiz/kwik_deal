@@ -1,0 +1,56 @@
+<Workbook>
+  <Worksheet>
+    <table border="1">
+      <tr>
+        <th>Opportunity Owner</th>
+        <th>Stage</th>
+        <th>City Planner</th>
+        <th>Merchant name in write-up</th>
+        <th>Division</th>
+        <th>Close Date</th>
+        <th>Name</th>
+        <th>Feature Country</th>
+        <th>Payment Terms</th>
+        <th>Email List To</th>
+        <th>Capacity Information</th>
+        <th>Fine Print</th>
+        <th>Highlights: Selling points from vendor</th>
+        <th>Description</th>
+        <th>Fulfillment Method</th>
+        <th>Freight Allowance</th>
+        <th>Freight Terms</th>
+        <th>Maximum Delivery Days</th>
+        <th>Shipping SLA</th>
+        <th>Refund Allowance %</th>
+        <th>Brand/Manufacturer</th>
+        <th>Opportunity Record Type</th>
+      </tr>
+      <% @deals.each do |deal| %>
+      <tr>
+        <td><%= deal.account_name %></td>
+        <td><%= deal.stage %></td>
+        <td><%= deal.city_planner %></td>
+        <td><%= deal.brand %></td>
+        <td>Merchandizing (ZA)</td>
+        <td><%= deal.created_at %></td>
+        <td><%= deal.opportunity_name %></td>
+        <td><%= deal.feature_country %></td>
+        <td><%= deal.payment_terms %></td>
+        <td><%= deal.email_to %></td>
+        <td><%= deal.capacity_info %></td>
+        <td><%= deal.fine_print %></td>
+        <td><%= deal.highlights %></td>
+        <td><%= deal.description %></td>
+        <td><%= deal.fulfill_method %></td>
+        <td><%= deal.freight_allowance %></td>
+        <td>Freight Collect</td>
+        <td><%= deal.max_delivery_days %></td>
+        <td><%= deal.shipping_sla %></td>
+        <td>0</td>
+        <td><%= deal.brand %></td>
+        <td>Groupon Goods</td>
+      </tr>
+      <% end %>
+    </table>
+  </Worksheet>
+</Workbook>

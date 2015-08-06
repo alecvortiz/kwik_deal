@@ -1,0 +1,76 @@
+<Workbook>
+  <Worksheet>
+    <table border="1">
+      <tr>
+        <th>Record ID</th>
+        <th>Option Name</th>
+        <th>Opportunity</th>
+        <th>Expiration Type</th>
+        <th>Months to Expiration</th>
+        <th>Days to Expiration</th>
+        <th>Sell SKU/UPC/EAN Number</th>
+        <th>Units Per Carton</th>
+        <th>Cartons per Pallet</th>
+        <th>Are Pallets Stackable?</th>
+        <th>Dimensions UoM</th>
+        <th>Weight UoM</th>
+        <th>Retail Package Height</th>
+        <th>Retail Package Length</th>
+        <th>Retail Package Width</th>
+        <th>Retail Package Weight</th>
+        <th>Product Dimension Height</th>
+        <th>Product Dimension Length</th>
+        <th>Product Dimension Width</th>
+        <th>Product Dimension Weight</th>
+        <th>Master Carton Height</th>
+        <th>Master Carton Length</th>
+        <th>Master Carton Width</th>
+        <th>Master Carton Weight</th>
+        <th>Country of Origin (Made In)</th>
+        <th>Estimated Shipping Cost per Unit (3PL)</th>
+        <th>Unit Value</th>
+        <th>Unit Sell Price</th>
+        <th>Intl Option Commission</th>
+        <th>Buyer Max</th>
+        <th>Option Cap</th>
+        <th>Display Order</th>
+      </tr>
+      <% @products.each do |product| %>
+      <tr>
+        <td><%= product.id %></td>
+        <td><%= product.option_name %></td>
+        <td><%= product.opportunity_name %></td>
+        <td><%= product.expiration_type %></td>
+        <td><%= product.months_to_expiration %></td>
+        <td><%= product.days_to_expiration %></td>
+        <td><%= product.sell_number %></td>
+        <td><%= product.units_per_carton %></td>
+        <td><%= product.cartons_per_pallet %></td>
+        <td><%= product.pallets_stackable %></td>
+        <td><%= product.dimensions_uom %></td>
+        <td><%= product.weight_uom %></td>
+        <td><%= product.retail_package_height %></td>
+        <td><%= product.retail_package_length %></td>
+        <td><%= product.retail_package_width %></td>
+        <td><%= product.retail_package_weight %></td>
+        <td><%= product.product_dimension_height %></td>
+        <td><%= product.product_dimension_length %></td>
+        <td><%= product.product_dimension_width %></td>
+        <td><%= product.product_dimension_weight %></td>
+        <td><%= product.master_carton_height %></td>
+        <td><%= product.master_carton_length %></td>
+        <td><%= product.master_carton_width %></td>
+        <td><%= product.master_carton_weight %></td>
+        <td><%= product.country_origin %></td>
+        <td><%= product.est_shipping_cost %></td>
+        <td><%= product.unit_value %></td>
+        <td><%= product.unit_sell_price %></td>
+        <td><%= product.option_commission %></td>
+        <td><%= product.buyer_max %></td>
+        <td><%= product.option_cap %></td>
+        <td><%= product.display_order %></td>
+      </tr>
+      <% end %>
+    </table>
+  </Worksheet>
+</Workbook>

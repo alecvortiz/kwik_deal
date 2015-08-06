@@ -11,7 +11,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150731131104) do
+ActiveRecord::Schema.define(version: 20150806112538) do
+
+  create_table "comments", force: :cascade do |t|
+    t.text     "body"
+    t.integer  "deal_id"
+    t.string   "commenter"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "deals", force: :cascade do |t|
     t.integer  "user_id"
@@ -41,6 +49,7 @@ ActiveRecord::Schema.define(version: 20150731131104) do
     t.float    "refund_allowance"
     t.text     "notes_to_editorial"
     t.boolean  "cloned"
+    t.string   "opportunity_name"
   end
 
   create_table "products", force: :cascade do |t|
@@ -82,6 +91,7 @@ ActiveRecord::Schema.define(version: 20150731131104) do
     t.string   "avatar_content_type"
     t.integer  "avatar_file_size"
     t.datetime "avatar_updated_at"
+    t.string   "opportunity_name"
   end
 
   create_table "users", force: :cascade do |t|

@@ -9,12 +9,11 @@
             <% end %>
         </div>
     </div>
-
-    
     
    <div class="row">
        <div class="col-md-6">
         <% if current_user.role == "admin" %> 
+            <p><strong>Opportunity Name:</strong> <%= @deal.opportunity_name %></p>
             <p><strong>Account Name:</strong> <%= @deal.account_name %></p>
             <p><strong>City Planner:</strong> <%= @deal.city_planner %></p>
             <p><strong>Payment Terms:</strong> <%= @deal.payment_terms %></p>
@@ -107,6 +106,22 @@
     <% end %>
     <br>
     <br>
+    <p>
+        
+    </p>
+    <% if !@deal.comments.empty? %>
+        <strong>Message from Admin: </strong>
+        <%= render @deal.comments %>
+    <% end %>
+    <br>
+    <% if @deal.stage == "Denied" && current_user.role == "admin"%>
+        <strong>Send message about deal denial:</strong>
+        <%= render 'comments/form' %>
+    <% end %>
+    
+
+        
+    
     
 </div>
 
